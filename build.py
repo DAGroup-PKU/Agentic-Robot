@@ -136,7 +136,8 @@ def build(base_path="", output_dir=None):
     for p in posts:
         body = p["body_html"].replace("{{RESULTS_URL}}", esc(site["results_url"])).replace("{{PHYSICAL_URL}}", esc(site["physical_url"]))
         article_media = f'<figure class="article-figure article-inline-media {esc(p["image_style"])}">{video(p) if p.get("video") else photo(p, loading="eager")}<figcaption>{esc(p["image_caption"])}</figcaption></figure>'
-        body = body.replace("{{ARTICLE_VIDEO}}", article_media) if "{{ARTICLE_VIDEO}}" in body else article_media + body
+        if p.get("article_media", True):
+            body = body.replace("{{ARTICLE_VIDEO}}", article_media) if "{{ARTICLE_VIDEO}}" in body else article_media + body
         headings = re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', body)
         toc = ''.join(f'<a href="#{esc(anchor)}">{title}</a>' for anchor, title in headings)
         report_links = ''.join(f'<a class="aside-project" href="{esc(report(by_project[slug]["results_path"]))}" target="_blank" rel="noopener noreferrer"><span class="eyebrow">{esc(by_project[slug]["environment"])}</span>{esc(by_project[slug]["short_name"])} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>' for slug in p["projects"])

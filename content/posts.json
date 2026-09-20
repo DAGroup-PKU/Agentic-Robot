@@ -24,5 +24,26 @@
       "Qiang Wang",
       "Daquan Zhou"
     ]
+  },
+  {
+    "slug": "agents-in-the-real-world",
+    "title": "Agents in the Real World: From Exploration to Execution",
+    "subtitle": "Astra and Fable 5.1 on physical robots: developing solutions, executing repeated runs, and understanding the role of human support.",
+    "excerpt": "From block and disc stacking to Ethernet insertion: what agents achieve on real robots, how they achieve it, and the time and human effort involved.",
+    "date": "2026-09-20",
+    "category": "Real world",
+    "projects": [
+      "physical-manipulation"
+    ],
+    "image": "physical-ethernet.jpg",
+    "image_alt": "Physical robot arms holding an Ethernet cable beside a computer.",
+    "image_caption": "Agents on physical robots · Ethernet insertion",
+    "body": "agents-in-the-real-world.html",
+    "results_path": "https://robot-task-evaluation.quincy-wang.chatgpt.site/?run=astra-hanoi-r01",
+    "image_style": "photo",
+    "video": "real-world/01_ethernet_hardware_control.mp4",
+    "video_label": "Ethernet insertion on the dual-arm robot platform.",
+    "video_caption": "Agents on physical robots · Ethernet insertion",
+    "article_media": false
   }
 ]

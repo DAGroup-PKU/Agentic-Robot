@@ -181,3 +181,21 @@ body{padding-left:var(--sidebar-width)}
 .primitive-example figcaption{margin:0;padding:0 20px 18px;font-size:10px;line-height:1.7}
 .primitive-example figcaption a{color:var(--accent)}
 @media(max-width:760px){.author-list{font-size:15px;gap:4px 9px}.author-name+.author-name:before{margin-right:9px}.byline{flex-wrap:wrap;gap:10px}.byline .copy-link{font-size:11px}.primitive-stage-detail{margin-inline:15px}.primitive-example figcaption{padding-inline:15px}}
+
+/* Physical-robot articles reuse the journal palette and reading layout. */
+.real-world-article{min-width:0}
+.real-world-videos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0 32px}
+.real-world-videos figure{min-width:0;margin:0;border:1px solid var(--line);background:var(--card-surface)}
+.real-world-videos video{display:block;width:100%;height:auto;background:var(--ink)}
+.real-world-videos figcaption{padding:10px 12px;margin:0;font-size:12px;color:var(--muted)}
+.real-world-diagram{margin:28px 0}
+.real-world-diagram img{display:block;width:100%;height:auto}
+.real-world-diagram figcaption,.real-world-article .source{font-size:12px;line-height:1.7;color:var(--muted)}
+.real-world-diagram figcaption{margin-top:12px}
+.real-world-article .table-wrap{max-width:100%;overflow-x:auto;border:1px solid var(--line);margin:20px 0}
+.real-world-article table{min-width:680px;margin:0;font-size:13px}
+.real-world-article th,.real-world-article td{padding:14px 16px;vertical-align:top}
+.real-world-article thead th{background:var(--sage)}
+.real-world-article tbody th{text-align:left;min-width:130px}
+.real-world-article tbody tr:nth-child(even){background:var(--card-surface)}
+@media(max-width:760px){.real-world-videos{grid-template-columns:1fr;gap:20px}.real-world-article th,.real-world-article td{font-size:12px}.real-world-article .table-wrap{margin:18px 0}.real-world-diagram{overflow-x:auto}.real-world-diagram img{min-width:540px}}

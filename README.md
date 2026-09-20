@@ -37,7 +37,7 @@ Use `python serve.py --port 8788` for another port. The server binds to loopback
 | `templates/layout.html` | Shared page shell, header and footer |
 | `build.py` | Page composition and route generation |
 
-The current RoboDojo article summarizes the saved evaluation evidence. Zero-shot is scoped to execution without further coding-agent iteration; the historical scoring panel is not held out. A real-world blog can be added later.
+The current RoboDojo article summarizes the saved evaluation evidence. Zero-shot is scoped to execution without further coding-agent iteration; the historical scoring panel is not held out. The real-world article covers exploration and execution on physical robots, with three local task videos and diagrams adapted to the journal palette.
 
 ## Add a post
 
@@ -78,3 +78,7 @@ The homepage contains blog cards with a date, estimated reading time, title, sum
 The tic-tac-toe video is copied without edits from `../evaluation-atlas/out/videos/7047d73917c9-0-2.mp4`. Its report metadata records a successful earlier development episode on 2026-09-14; it is not scored-batch footage or a representative sample. The video uses native playback controls and does not autoplay. The poster and category radar come from the same saved report build. The radar’s white canvas and plot backgrounds are made transparent to blend with the blog; data geometry and model colors are unchanged. `content/robodojo-results.json` is an unchanged copy of that report’s `comparison.json` (snapshot 2026-09-17). Refresh the snapshot and radar together if results change. The public URL rejected automated retrieval during this edit; the local report artifacts were used.
 
 For another video blog, set `video` (local asset filename), `video_label`, and `video_caption` alongside the existing image fields, which supply the poster. The `results_snapshot` field records the evidence file for editorial reference; charts and results belong in the article body.
+
+## Real-world article
+
+`content/articles/agents-in-the-real-world.html` adapts the supplied “Agents in the Real World: From Exploration to Execution” article. Its three videos are copied unchanged from the supplied share folder into `assets/real-world/`; the two SVG diagrams retain their content and geometry with journal colors. The article provides its own media gallery, so its post record sets `article_media: false` to avoid repeating the preview video. Its report links open the `astra-hanoi-r01` run. The original standalone source is preserved.

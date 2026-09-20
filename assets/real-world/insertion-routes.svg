@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="970" viewBox="0 0 1060 970" role="img" aria-labelledby="title desc">
+<title id="title">Ethernet insertion: Astra and Fable 5.1 technical routes</title>
+<desc id="desc">Astra reviews current images and selects motion corrections, then a controller performs incremental motion and scripts check insertion. If unresolved, feedback returns to model review. Fable 5.1 uses scripted visual servo alignment, axial-force control with lateral and rotational admittance, and scripted seating checks and retries. The selected recordings show five of five mechanical insertions for Astra and zero of five for Fable.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7b876d"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#242923} .heading{font-size:27px;font-weight:700}.sub{font-size:18px;fill:#656a61}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:16px;fill:#656a61}.arrow{fill:none;stroke:#7b876d;stroke-width:2;marker-end:url(#arrow)}</style>
+<rect width="1060" height="970" fill="#f5f4ef"/>
+
+<text x="265" y="42" class="heading" text-anchor="middle">Astra</text>
+<text x="795" y="42" class="heading" text-anchor="middle">Fable 5.1</text>
+<text x="265" y="74" class="sub" text-anchor="middle">Model reviews and corrects between actions</text>
+<text x="795" y="74" class="sub" text-anchor="middle">Agent-developed program handles the loop</text>
+<rect x="70" y="108" width="390" height="136" rx="10" fill="#eceee6" stroke="#d8dad0"/>
+<text x="265.0" y="139" class="label" text-anchor="middle">Prepare the approach</text>
+<text x="265.0" y="168" class="body" text-anchor="middle">Waypoints + clearance</text>
+<text x="265.0" y="194" class="body" text-anchor="middle">Grasp → check → lift</text>
+<text x="265.0" y="220" class="body" text-anchor="middle">Tool + target geometry</text>
+<rect x="600" y="108" width="390" height="136" rx="10" fill="#eceee6" stroke="#d8dad0"/>
+<text x="795.0" y="139" class="label" text-anchor="middle">Prepare the approach</text>
+<text x="795.0" y="168" class="body" text-anchor="middle">Plug + socket localization</text>
+<text x="795.0" y="194" class="body" text-anchor="middle">Tip estimate: stereo + depth</text>
+<text x="795.0" y="220" class="body" text-anchor="middle">Pick → rotate → regrasp</text>
+<path d="M265 244 V267" class="arrow"/>
+<path d="M795 244 V267" class="arrow"/>
+<rect x="51" y="275" width="428" height="496" rx="13" fill="#e7eae1"/>
+<rect x="581" y="275" width="428" height="496" rx="13" fill="#eceee6"/>
+<text x="265" y="298" class="small" text-anchor="middle">FINAL ALIGNMENT AND INSERTION</text>
+<text x="795" y="298" class="small" text-anchor="middle">FINAL ALIGNMENT AND INSERTION</text>
+<g aria-label="Online model decision: inspect images and specify the motion correction">
+<rect x="70" y="319" width="390" height="111" rx="10" fill="#b8492b" stroke="#963d25"/>
+<text x="265" y="355" text-anchor="middle" style="fill:#ffffff;font-size:23px;font-weight:800;letter-spacing:0.3px">ONLINE MODEL DECISION</text>
+<text x="265" y="383" text-anchor="middle" style="fill:#f5f4ef;font-size:17px;font-weight:400">Inspect images → choose correction</text>
+<text x="265" y="407" text-anchor="middle" style="fill:#f5f4ef;font-size:17px">Specify direction + distance</text>
+</g>
+<rect x="600" y="319" width="390" height="111" rx="10" fill="#f5f4ef" stroke="#b9c1b0"/>
+<text x="795.0" y="350" class="label" text-anchor="middle">Program: visual servo alignment</text>
+<text x="795.0" y="379" class="body" text-anchor="middle">Detect socket holes in images</text>
+<text x="795.0" y="405" class="body" text-anchor="middle">Correct toward taught reference pixels</text>
+<path d="M265 430 V462" class="arrow"/>
+<path d="M795 430 V462" class="arrow"/>
+<rect x="70" y="469" width="390" height="111" rx="10" fill="#f5f4ef" stroke="#b9c1b0"/>
+<text x="265.0" y="500" class="label" text-anchor="middle">Controller: execute bounded motion</text>
+<text x="265.0" y="529" class="body" text-anchor="middle">Incremental damped-least-squares IK</text>
+<text x="265.0" y="555" class="body" text-anchor="middle">Monitor force, travel and stalls</text>
+<rect x="600" y="469" width="390" height="111" rx="10" fill="#f5f4ef" stroke="#b9c1b0"/>
+<text x="795.0" y="500" class="label" text-anchor="middle">Controller: contact and insertion</text>
+<text x="795.0" y="529" class="body" text-anchor="middle">Regulate axial force</text>
+<text x="795.0" y="555" class="body" text-anchor="middle">Lateral + rotational admittance</text>
+<path d="M265 580 V612" class="arrow"/>
+<path d="M795 580 V612" class="arrow"/>
+<rect x="70" y="619" width="390" height="111" rx="10" fill="#f5f4ef" stroke="#b9c1b0"/>
+<text x="265.0" y="650" class="label" text-anchor="middle">Check: insertion and retention</text>
+<text x="265.0" y="679" class="body" text-anchor="middle">Script checks; model reviews feedback</text>
+<text x="265.0" y="705" class="body" text-anchor="middle">Release and observe retained plug</text>
+<rect x="600" y="619" width="390" height="111" rx="10" fill="#f5f4ef" stroke="#b9c1b0"/>
+<text x="795.0" y="650" class="label" text-anchor="middle">Program: seating check and retries</text>
+<text x="795.0" y="679" class="body" text-anchor="middle">Check seating from available feedback</text>
+<text x="795.0" y="705" class="body" text-anchor="middle">Retry alignment / insertion as scripted</text>
+<path d="M70 673 H28 V373 H63" class="arrow" stroke-dasharray="6 5"/>
+<path d="M990 673 H1032 V373 H997" class="arrow" stroke-dasharray="6 5"/>
+<text class="small" text-anchor="middle" transform="translate(17 523) rotate(-90)">Unresolved → reobserve and revise</text>
+<text class="small" text-anchor="middle" transform="translate(1052 523) rotate(90)">Unresolved → scripted retry</text>
+<text x="265" y="755" class="small" text-anchor="middle">Next correction requires model judgment</text>
+<text x="795" y="755" class="small" text-anchor="middle">Alignment and contact corrections stay in code</text>
+<path d="M265 772 V801" class="arrow"/>
+<path d="M795 772 V801" class="arrow"/>
+<rect x="70" y="808" width="390" height="105" rx="10" fill="#eceee6" stroke="#d8dad0"/>
+<text x="265.0" y="839" class="label" text-anchor="middle">Recorded outcome: 5 / 5</text>
+<text x="265.0" y="868" class="body" text-anchor="middle">Mechanical insertion completed</text>
+<text x="265.0" y="894" class="body" text-anchor="middle">Local recovery between attempts</text>
+<rect x="600" y="808" width="390" height="105" rx="10" fill="#eceee6" stroke="#d8dad0"/>
+<text x="795.0" y="839" class="label" text-anchor="middle">Recorded outcome: 0 / 5</text>
+<text x="795.0" y="868" class="body" text-anchor="middle">4 runs: hard stop during insertion</text>
+<text x="795.0" y="894" class="body" text-anchor="middle">1 run: alignment failed before insertion</text>
+<text x="530" y="950" class="small" text-anchor="middle">Selected recordings; mechanical insertion only. Electrical connectivity was not verified.</text>
+</svg>

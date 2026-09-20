@@ -1,7 +1,7 @@
 {
-  "name": "Agent \u00d7 Robot",
+  "name": "Agent × Robot",
   "description": "A research journal on AI agents, robot policies, and physical interaction.",
   "results_url": "https://robodojo-evaluation-atlas.bijianxin292430887.chatgpt.site",
-  "physical_url": "https://robot-task-evaluation.quincy-wang.chatgpt.site/?run=RESUME-20260917-REC02",
+  "physical_url": "https://robot-task-evaluation.quincy-wang.chatgpt.site/?run=astra-hanoi-r01",
   "content_note": "Initial article drafts prepared from the existing evaluation evidence for local review."
 }

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto" id="harness-flow" width="1000" height="350" viewBox="0 0 1000 350" role="img" aria-labelledby="harness-title harness-desc">
+<title id="harness-title">Engineer and Runner experiment loop</title>
+<desc id="harness-desc">Engineer sends an experiment to Runner. Within the round, Runner writes code, executes, observes, modifies and retries. On completion or a stopping condition, Runner returns a result to Engineer.</desc>
+<defs><marker id="harness-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#7b876d"/></marker></defs>
+<style>#harness-flow text{font-family:Arial,Helvetica,sans-serif;fill:#242923}#harness-flow .role{font-size:25px;font-weight:600}#harness-flow .msg{font-size:18px;fill:#656a61}#harness-flow .step{font-size:18px}#harness-flow .flow{fill:none;stroke:#7b876d;stroke-width:1.8;marker-end:url(#harness-arrow)}</style>
+<rect width="1000" height="350" fill="#f5f4ef"/>
+<rect x="30" y="116" width="195" height="102" rx="12" fill="#e7eae1" stroke="#d8dad0"/>
+<text x="127.5" y="177" text-anchor="middle" class="role">Engineer</text>
+<rect x="440" y="30" width="530" height="275" rx="12" fill="#e7eae1" stroke="#d8dad0"/>
+<text x="705" y="71" text-anchor="middle" class="role">Runner</text>
+<path d="M225 140 H430" class="flow"/>
+<text x="327" y="124" text-anchor="middle" class="msg">experiment</text>
+<path d="M440 194 H235" class="flow"/>
+<text x="327" y="224" text-anchor="middle" class="msg">result</text>
+<rect x="465" y="102" width="135" height="49" rx="7" fill="#f5f4ef" stroke="#d8dad0"/>
+<text x="532.5" y="132" text-anchor="middle" class="step">Write code</text>
+<rect x="642" y="102" width="125" height="49" rx="7" fill="#f5f4ef" stroke="#d8dad0"/>
+<text x="704.5" y="132" text-anchor="middle" class="step">Execute</text>
+<rect x="809" y="102" width="135" height="49" rx="7" fill="#f5f4ef" stroke="#d8dad0"/>
+<text x="876.5" y="132" text-anchor="middle" class="step">Observe</text>
+<path d="M600 126 H634" class="flow"/>
+<path d="M767 126 H801" class="flow"/>
+<rect x="618" y="188" width="173" height="46" rx="7" fill="#f5f4ef" stroke="#d8dad0"/>
+<text x="704.5" y="217" text-anchor="middle" class="step">Modify &amp; retry</text>
+<path d="M876.5 151 V211 H799" class="flow"/>
+<path d="M618 211 H532.5 V159" class="flow"/>
+<text x="705" y="277" text-anchor="middle" class="msg">Return when done or stopped</text>
+</svg>
