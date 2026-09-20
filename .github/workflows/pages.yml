@@ -1,8 +1,6 @@
 name: Deploy Agent × Robot
 
 on:
-  push:
-    branches: [main, master]
   workflow_dispatch:
 
 permissions:

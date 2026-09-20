@@ -63,7 +63,7 @@ This generates `public/`: HTML, CSS, JavaScript, images and SVGs. A static host 
 
 ## GitHub Pages
 
-The `.github/workflows/pages.yml` workflow builds, checks internal links and assets, and publishes `public/` on pushes to `main` or `master`. In repository Settings → Pages, select **GitHub Actions** as the build source. The workflow reads the configured base path, so repository hosting and custom domains use the same source. Generated output and Python caches are ignored by Git.
+The repository is private and the website is not published. The organization’s current plan does not support GitHub Pages for this private repository. A manual `.github/workflows/pages.yml` workflow is included for future hosting: it builds, checks internal links and assets, and publishes `public/` when explicitly dispatched. Once Pages hosting is available, select **GitHub Actions** in repository Settings → Pages before running it. Pushes do not trigger deployment. The workflow reads the configured base path, so repository hosting and custom domains use the same source. Generated output and Python caches are ignored by Git.
 
 ## Evidence
 
