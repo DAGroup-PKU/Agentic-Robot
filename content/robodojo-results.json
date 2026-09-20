@@ -1,0 +1,651 @@
+{
+  "schema": "robodojo-model-comparison-v1",
+  "snapshot_date": "2026-09-17",
+  "models": {
+    "gpt": "Astra policies",
+    "fable": "Fable 5.1 policies (claude-fable-5-1)"
+  },
+  "panel": {
+    "tasks": 18,
+    "episodes_per_task": 20,
+    "layouts": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "split": "development",
+    "suite_seed": 0
+  },
+  "sources": {
+    "gpt_batch": "eval-only-56585ce8a0cd",
+    "gpt_finished_at": "2026-09-15T20:27:50.094563+00:00",
+    "fable_finalized_at": "2026-09-17T10:28:59.797156+00:00",
+    "gpt_export_sha256": "d8109092acbf0e06f30187ccc6e25cf10fab80a66212f6c0e8ba147b8797157c",
+    "fable_results_sha256": "20e35bfe2de94cce7a74e289a8f13743f77060dc33ea2db32de9d370b7aaf895"
+  },
+  "notes": [
+    "Historical policy comparison; development effort and task scope were unequal.",
+    "Development panel, not held-out. Underlying asset/hardware parity has not been independently established here.",
+    "One verified Fable simulator-startup failure was superseded by an unchanged-candidate/layout retry; 360 scored episodes.",
+    "Success and mean native progress score include all 20 scored episodes per task, including policy failures.",
+    "Category membership is retained from the existing Astra report; groups have 2\u20135 tasks.",
+    "Overall rates pool episodes; with 20 episodes per task they equal task-macro averages.",
+    "The legacy gpt data key denotes the Astra policy set.",
+    "Policy error is an evaluator classification. Astra has 134 runtime check stops; Fable has zero surfaced errors but eight caught KeyErrors documented in policy-error-audit.json."
+  ],
+  "overall": {
+    "gpt": {
+      "episodes": 360,
+      "successes": 169,
+      "success_rate": 0.46944444444444444,
+      "mean_score": 0.49375,
+      "policy_errors": 134,
+      "normal_failures": 57
+    },
+    "fable": {
+      "episodes": 360,
+      "successes": 153,
+      "success_rate": 0.425,
+      "mean_score": 0.4918055555555556,
+      "policy_errors": 0,
+      "normal_failures": 207
+    }
+  },
+  "categories": [
+    {
+      "id": "blocks",
+      "label": "Block manipulation",
+      "description": "Aligning, covering and stacking blocks, including language and random variants.",
+      "members": [
+        "align_blocks",
+        "cover_blocks",
+        "stack_blocks",
+        "stack_blocks_by_language",
+        "stack_blocks_random"
+      ],
+      "task_count": 5,
+      "gpt": {
+        "episodes": 100,
+        "successes": 79,
+        "success_rate": 0.79,
+        "mean_score": 0.7995,
+        "policy_errors": 15,
+        "normal_failures": 6
+      },
+      "fable": {
+        "episodes": 100,
+        "successes": 47,
+        "success_rate": 0.47,
+        "mean_score": 0.5155,
+        "policy_errors": 0,
+        "normal_failures": 53
+      }
+    },
+    {
+      "id": "symbolic",
+      "label": "Symbolic tasks",
+      "description": "Number ordering, arithmetic, numbered buttons and tic-tac-toe.",
+      "members": [
+        "arrange_largest_number",
+        "solve_equation",
+        "press_by_number",
+        "play_tic_tac_toe"
+      ],
+      "task_count": 4,
+      "gpt": {
+        "episodes": 80,
+        "successes": 53,
+        "success_rate": 0.6625,
+        "mean_score": 0.714375,
+        "policy_errors": 22,
+        "normal_failures": 5
+      },
+      "fable": {
+        "episodes": 80,
+        "successes": 46,
+        "success_rate": 0.575,
+        "mean_score": 0.6443749999999999,
+        "policy_errors": 0,
+        "normal_failures": 34
+      }
+    },
+    {
+      "id": "objects",
+      "label": "Object handling",
+      "description": "Picking up, sorting and disposing of everyday objects.",
+      "members": [
+        "general_pickup",
+        "classify_objects_by_language",
+        "put_bottles_into_dustbin"
+      ],
+      "task_count": 3,
+      "gpt": {
+        "episodes": 60,
+        "successes": 15,
+        "success_rate": 0.25,
+        "mean_score": 0.29583333333333334,
+        "policy_errors": 31,
+        "normal_failures": 14
+      },
+      "fable": {
+        "episodes": 60,
+        "successes": 16,
+        "success_rate": 0.26666666666666666,
+        "mean_score": 0.4033333333333333,
+        "policy_errors": 0,
+        "normal_failures": 44
+      }
+    },
+    {
+      "id": "cloth",
+      "label": "Cloth folding",
+      "description": "Folding garments in base and randomized configurations.",
+      "members": [
+        "fold_clothes",
+        "fold_clothes_random"
+      ],
+      "task_count": 2,
+      "gpt": {
+        "episodes": 40,
+        "successes": 12,
+        "success_rate": 0.3,
+        "mean_score": 0.315,
+        "policy_errors": 12,
+        "normal_failures": 16
+      },
+      "fable": {
+        "episodes": 40,
+        "successes": 24,
+        "success_rate": 0.6,
+        "mean_score": 0.67,
+        "policy_errors": 0,
+        "normal_failures": 16
+      }
+    },
+    {
+      "id": "tools",
+      "label": "Tools & insertion",
+      "description": "Manipulating a mallet and inserting a coin.",
+      "members": [
+        "play_Xylophone",
+        "deposit_coin"
+      ],
+      "task_count": 2,
+      "gpt": {
+        "episodes": 40,
+        "successes": 0,
+        "success_rate": 0.0,
+        "mean_score": 0.0,
+        "policy_errors": 38,
+        "normal_failures": 2
+      },
+      "fable": {
+        "episodes": 40,
+        "successes": 0,
+        "success_rate": 0.0,
+        "mean_score": 0.04,
+        "policy_errors": 0,
+        "normal_failures": 40
+      }
+    },
+    {
+      "id": "shapes",
+      "label": "Shape manipulation",
+      "description": "Swapping T-shaped objects and nesting bowls.",
+      "members": [
+        "swap_T",
+        "stack_bowls"
+      ],
+      "task_count": 2,
+      "gpt": {
+        "episodes": 40,
+        "successes": 10,
+        "success_rate": 0.25,
+        "mean_score": 0.2575,
+        "policy_errors": 16,
+        "normal_failures": 14
+      },
+      "fable": {
+        "episodes": 40,
+        "successes": 20,
+        "success_rate": 0.5,
+        "mean_score": 0.5337500000000001,
+        "policy_errors": 0,
+        "normal_failures": 20
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "align_blocks",
+      "label": "align blocks",
+      "category": "blocks",
+      "gpt": {
+        "episodes": 20,
+        "successes": 15,
+        "success_rate": 0.75,
+        "mean_score": 0.75,
+        "policy_errors": 5,
+        "normal_failures": 0
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 6,
+        "success_rate": 0.3,
+        "mean_score": 0.3,
+        "policy_errors": 0,
+        "normal_failures": 14
+      },
+      "success_delta_pp": -45.0,
+      "score_delta": -0.45
+    },
+    {
+      "id": "cover_blocks",
+      "label": "cover blocks",
+      "category": "blocks",
+      "gpt": {
+        "episodes": 20,
+        "successes": 20,
+        "success_rate": 1.0,
+        "mean_score": 1.0,
+        "policy_errors": 0,
+        "normal_failures": 0
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 20,
+        "success_rate": 1.0,
+        "mean_score": 1.0,
+        "policy_errors": 0,
+        "normal_failures": 0
+      },
+      "success_delta_pp": 0.0,
+      "score_delta": 0.0
+    },
+    {
+      "id": "stack_blocks",
+      "label": "stack blocks",
+      "category": "blocks",
+      "gpt": {
+        "episodes": 20,
+        "successes": 17,
+        "success_rate": 0.85,
+        "mean_score": 0.865,
+        "policy_errors": 1,
+        "normal_failures": 2
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 7,
+        "success_rate": 0.35,
+        "mean_score": 0.4325,
+        "policy_errors": 0,
+        "normal_failures": 13
+      },
+      "success_delta_pp": -50.0,
+      "score_delta": -0.4325
+    },
+    {
+      "id": "stack_blocks_by_language",
+      "label": "stack blocks by language",
+      "category": "blocks",
+      "gpt": {
+        "episodes": 20,
+        "successes": 19,
+        "success_rate": 0.95,
+        "mean_score": 0.96,
+        "policy_errors": 0,
+        "normal_failures": 1
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 8,
+        "success_rate": 0.4,
+        "mean_score": 0.47000000000000003,
+        "policy_errors": 0,
+        "normal_failures": 12
+      },
+      "success_delta_pp": -54.99999999999999,
+      "score_delta": -0.48999999999999994
+    },
+    {
+      "id": "stack_blocks_random",
+      "label": "stack blocks random",
+      "category": "blocks",
+      "gpt": {
+        "episodes": 20,
+        "successes": 8,
+        "success_rate": 0.4,
+        "mean_score": 0.4225,
+        "policy_errors": 9,
+        "normal_failures": 3
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 6,
+        "success_rate": 0.3,
+        "mean_score": 0.375,
+        "policy_errors": 0,
+        "normal_failures": 14
+      },
+      "success_delta_pp": -10.000000000000004,
+      "score_delta": -0.04749999999999999
+    },
+    {
+      "id": "arrange_largest_number",
+      "label": "arrange largest number",
+      "category": "symbolic",
+      "gpt": {
+        "episodes": 20,
+        "successes": 5,
+        "success_rate": 0.25,
+        "mean_score": 0.3075,
+        "policy_errors": 12,
+        "normal_failures": 3
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 7,
+        "success_rate": 0.35,
+        "mean_score": 0.47750000000000004,
+        "policy_errors": 0,
+        "normal_failures": 13
+      },
+      "success_delta_pp": 9.999999999999998,
+      "score_delta": 0.17000000000000004
+    },
+    {
+      "id": "solve_equation",
+      "label": "solve equation",
+      "category": "symbolic",
+      "gpt": {
+        "episodes": 20,
+        "successes": 12,
+        "success_rate": 0.6,
+        "mean_score": 0.6,
+        "policy_errors": 6,
+        "normal_failures": 2
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 5,
+        "success_rate": 0.25,
+        "mean_score": 0.25,
+        "policy_errors": 0,
+        "normal_failures": 15
+      },
+      "success_delta_pp": -35.0,
+      "score_delta": -0.35
+    },
+    {
+      "id": "press_by_number",
+      "label": "press by number",
+      "category": "symbolic",
+      "gpt": {
+        "episodes": 20,
+        "successes": 20,
+        "success_rate": 1.0,
+        "mean_score": 1.0,
+        "policy_errors": 0,
+        "normal_failures": 0
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 18,
+        "success_rate": 0.9,
+        "mean_score": 0.9,
+        "policy_errors": 0,
+        "normal_failures": 2
+      },
+      "success_delta_pp": -9.999999999999998,
+      "score_delta": -0.09999999999999998
+    },
+    {
+      "id": "play_tic_tac_toe",
+      "label": "play tic tac toe",
+      "category": "symbolic",
+      "gpt": {
+        "episodes": 20,
+        "successes": 16,
+        "success_rate": 0.8,
+        "mean_score": 0.95,
+        "policy_errors": 4,
+        "normal_failures": 0
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 16,
+        "success_rate": 0.8,
+        "mean_score": 0.95,
+        "policy_errors": 0,
+        "normal_failures": 4
+      },
+      "success_delta_pp": 0.0,
+      "score_delta": 0.0
+    },
+    {
+      "id": "general_pickup",
+      "label": "general pickup",
+      "category": "objects",
+      "gpt": {
+        "episodes": 20,
+        "successes": 13,
+        "success_rate": 0.65,
+        "mean_score": 0.65,
+        "policy_errors": 1,
+        "normal_failures": 6
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 12,
+        "success_rate": 0.6,
+        "mean_score": 0.6,
+        "policy_errors": 0,
+        "normal_failures": 8
+      },
+      "success_delta_pp": -5.000000000000004,
+      "score_delta": -0.050000000000000044
+    },
+    {
+      "id": "classify_objects_by_language",
+      "label": "classify objects by language",
+      "category": "objects",
+      "gpt": {
+        "episodes": 20,
+        "successes": 0,
+        "success_rate": 0.0,
+        "mean_score": 0.025,
+        "policy_errors": 12,
+        "normal_failures": 8
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 2,
+        "success_rate": 0.1,
+        "mean_score": 0.275,
+        "policy_errors": 0,
+        "normal_failures": 18
+      },
+      "success_delta_pp": 10.0,
+      "score_delta": 0.25
+    },
+    {
+      "id": "put_bottles_into_dustbin",
+      "label": "put bottles into dustbin",
+      "category": "objects",
+      "gpt": {
+        "episodes": 20,
+        "successes": 2,
+        "success_rate": 0.1,
+        "mean_score": 0.2125,
+        "policy_errors": 18,
+        "normal_failures": 0
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 2,
+        "success_rate": 0.1,
+        "mean_score": 0.335,
+        "policy_errors": 0,
+        "normal_failures": 18
+      },
+      "success_delta_pp": 0.0,
+      "score_delta": 0.12250000000000003
+    },
+    {
+      "id": "fold_clothes",
+      "label": "fold clothes",
+      "category": "cloth",
+      "gpt": {
+        "episodes": 20,
+        "successes": 10,
+        "success_rate": 0.5,
+        "mean_score": 0.51,
+        "policy_errors": 1,
+        "normal_failures": 9
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 13,
+        "success_rate": 0.65,
+        "mean_score": 0.71,
+        "policy_errors": 0,
+        "normal_failures": 7
+      },
+      "success_delta_pp": 15.000000000000002,
+      "score_delta": 0.19999999999999996
+    },
+    {
+      "id": "fold_clothes_random",
+      "label": "fold clothes random",
+      "category": "cloth",
+      "gpt": {
+        "episodes": 20,
+        "successes": 2,
+        "success_rate": 0.1,
+        "mean_score": 0.12,
+        "policy_errors": 11,
+        "normal_failures": 7
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 11,
+        "success_rate": 0.55,
+        "mean_score": 0.63,
+        "policy_errors": 0,
+        "normal_failures": 9
+      },
+      "success_delta_pp": 45.00000000000001,
+      "score_delta": 0.51
+    },
+    {
+      "id": "play_Xylophone",
+      "label": "play xylophone",
+      "category": "tools",
+      "gpt": {
+        "episodes": 20,
+        "successes": 0,
+        "success_rate": 0.0,
+        "mean_score": 0.0,
+        "policy_errors": 18,
+        "normal_failures": 2
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 0,
+        "success_rate": 0.0,
+        "mean_score": 0.0,
+        "policy_errors": 0,
+        "normal_failures": 20
+      },
+      "success_delta_pp": 0.0,
+      "score_delta": 0.0
+    },
+    {
+      "id": "deposit_coin",
+      "label": "deposit coin",
+      "category": "tools",
+      "gpt": {
+        "episodes": 20,
+        "successes": 0,
+        "success_rate": 0.0,
+        "mean_score": 0.0,
+        "policy_errors": 20,
+        "normal_failures": 0
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 0,
+        "success_rate": 0.0,
+        "mean_score": 0.08,
+        "policy_errors": 0,
+        "normal_failures": 20
+      },
+      "success_delta_pp": 0.0,
+      "score_delta": 0.08
+    },
+    {
+      "id": "swap_T",
+      "label": "swap T",
+      "category": "shapes",
+      "gpt": {
+        "episodes": 20,
+        "successes": 10,
+        "success_rate": 0.5,
+        "mean_score": 0.5,
+        "policy_errors": 4,
+        "normal_failures": 6
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 9,
+        "success_rate": 0.45,
+        "mean_score": 0.45,
+        "policy_errors": 0,
+        "normal_failures": 11
+      },
+      "success_delta_pp": -4.999999999999999,
+      "score_delta": -0.04999999999999999
+    },
+    {
+      "id": "stack_bowls",
+      "label": "stack bowls",
+      "category": "shapes",
+      "gpt": {
+        "episodes": 20,
+        "successes": 0,
+        "success_rate": 0.0,
+        "mean_score": 0.015,
+        "policy_errors": 12,
+        "normal_failures": 8
+      },
+      "fable": {
+        "episodes": 20,
+        "successes": 11,
+        "success_rate": 0.55,
+        "mean_score": 0.6174999999999999,
+        "policy_errors": 0,
+        "normal_failures": 9
+      },
+      "success_delta_pp": 55.00000000000001,
+      "score_delta": 0.6024999999999999
+    }
+  ]
+}

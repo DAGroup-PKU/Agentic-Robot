@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="$description">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta property="og:title" content="$title">
+  <meta property="og:description" content="$description">
+  <meta property="og:type" content="website">
+  <title>$title</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/sidebar.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body class="$kind">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="site-sidebar" aria-label="Site navigation">
+    <a class="brand" href="/" aria-label="Agent × Robot — home"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 31h28M11 29V17l10-9 10 10-10 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="21" cy="8" r="4" fill="#dc633e"/><circle cx="31" cy="18" r="3" fill="currentColor"/><path d="m18 26 6 6m-6 0 6-6" stroke="#dc633e" stroke-width="2.5"/></svg><span class="brand-name">Agent <span class="brand-times">×</span> Robot</span></a>
+    <button class="sidebar-toggle" aria-expanded="false" aria-controls="sidebar-panel" aria-label="Open navigation"><span></span><span></span></button>
+    <div class="sidebar-panel" id="sidebar-panel"><nav class="sidebar-nav" aria-label="Main navigation">$nav</nav></div>
+  </aside>
+  <button class="sidebar-backdrop" aria-label="Close navigation" hidden tabindex="-1"></button>
+  <main id="main">$content</main>
+</body>
+</html>

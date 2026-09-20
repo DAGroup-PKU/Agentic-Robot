@@ -1,0 +1,28 @@
+[
+  {
+    "slug": "robodojo-offline-policy-zero-shot",
+    "title": "Coding Agents as Policies in RoboDojo",
+    "subtitle": "Agent-written robot policies in RoboDojo: develop with feedback, freeze the code, then execute without the agent during evaluation.",
+    "excerpt": "Agent-written robot policies in RoboDojo: develop with feedback, freeze the code, then execute without the agent during evaluation.",
+    "date": "2026-09-20",
+    "category": "RoboDojo",
+    "projects": [
+      "robodojo"
+    ],
+    "image": "tic-tac-toe.jpg",
+    "image_alt": "A simulated robot plays tic-tac-toe using colored tokens on a grid.",
+    "image_caption": "Agent-written robot policies in RoboDojo · Tic-Tac-Toe",
+    "body": "robodojo-offline-policy-zero-shot.html",
+    "results_path": "comparison.html",
+    "image_style": "photo",
+    "video": "tic-tac-toe.mp4",
+    "video_label": "Astra plays tic-tac-toe — a successful earlier development rollout.",
+    "video_caption": "Agent-written robot policies in RoboDojo · Tic-Tac-Toe",
+    "results_snapshot": "robodojo-results.json",
+    "authors": [
+      "Jianxin Bi",
+      "Qiang Wang",
+      "Daquan Zhou"
+    ]
+  }
+]

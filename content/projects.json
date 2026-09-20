@@ -1,0 +1,94 @@
+[
+  {
+    "slug": "robodojo",
+    "name": "Coding robot policies in simulation",
+    "short_name": "RoboDojo",
+    "environment": "Simulation",
+    "number": "01",
+    "description": "Can a coding agent turn a task instruction into a reusable robot controller? We compare Astra and Fable on the RoboDojo benchmark.",
+    "image": "simulation-stacking.jpg",
+    "image_alt": "Simulated robot arms facing three blocks on a wooden tabletop.",
+    "mode": "Offline coding → frozen-policy evaluation",
+    "metrics": [
+      {
+        "value": "18",
+        "label": "task settings"
+      },
+      {
+        "value": "720",
+        "label": "scored episodes"
+      },
+      {
+        "value": "2",
+        "label": "policy sets"
+      }
+    ],
+    "results_path": "comparison.html",
+    "summary": "The coding agent develops a controller using task and interface documentation plus evaluator feedback. The selected code is then frozen and evaluated across 20 scene layouts per setting. No coding agent participates during rollout.",
+    "findings": [
+      "Astra’s policies achieve 46.94% success; Fable’s achieve 42.50% across their 360-episode panels.",
+      "Both show relative strength on symbolic tasks and lose success in the base/random pairs for block stacking and cloth folding.",
+      "Neither completes coin insertion or xylophone playing in the scored panel. Failures involve perception, grasp retention and contact preparation."
+    ],
+    "limits": "This is a historical comparison on a development panel, with unequal coding histories. It is not a held-out or equal-budget model ranking.",
+    "evidence": [
+      {
+        "label": "Compare all task results",
+        "path": "comparison.html"
+      },
+      {
+        "label": "Watch task recordings",
+        "path": "recordings.html"
+      },
+      {
+        "label": "Explore primitive graphs",
+        "path": "primitives.html"
+      },
+      {
+        "label": "Timing and token accounting",
+        "path": "execution.html"
+      }
+    ],
+    "home_title": "RoboDojo"
+  },
+  {
+    "slug": "physical-manipulation",
+    "name": "Agents on physical robots",
+    "short_name": "Physical manipulation",
+    "environment": "Real world",
+    "number": "02",
+    "description": "From stacking objects to inserting an Ethernet plug: examine how agent-written code and online agent calls work together on real hardware.",
+    "image": "physical-ethernet.jpg",
+    "image_alt": "Physical robot arms holding an Ethernet cable beside a computer.",
+    "mode": "Offline coding + online agent API calls",
+    "metrics": [
+      {
+        "value": "3",
+        "label": "physical tasks"
+      },
+      {
+        "value": "30",
+        "label": "recorded trials"
+      },
+      {
+        "value": "2",
+        "label": "agents"
+      }
+    ],
+    "results_path": "external-physical",
+    "summary": "The physical experiment combines offline coding with online agent API calls during execution. Each agent has five recorded trials for Ethernet insertion, Hanoi disc stacking and block stacking. This is a separate protocol from frozen-code simulation evaluation.",
+    "findings": [
+      "The report records 15/15 successes for Astra and 10/15 for Fable.",
+      "Both complete all five block-stacking trials and all five Hanoi-stacking trials.",
+      "Astra completes five mechanical Ethernet insertions; Fable completes none of its five recorded insertion attempts."
+    ],
+    "limits": "Ethernet success means mechanical insertion, not verified electrical connectivity. Block results score stacking, not a full stack-and-unstack cycle. Physical and simulation rates have separate denominators and are not pooled.",
+    "evidence": [
+      {
+        "label": "Explore trials, methods and recordings",
+        "path": "external-physical"
+      }
+    ],
+    "home_title": "Real-world experiments"
+  }
+]
