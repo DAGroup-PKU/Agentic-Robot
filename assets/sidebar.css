@@ -198,4 +198,24 @@ body{padding-left:var(--sidebar-width)}
 .real-world-article thead th{background:var(--sage)}
 .real-world-article tbody th{text-align:left;min-width:130px}
 .real-world-article tbody tr:nth-child(even){background:var(--card-surface)}
-@media(max-width:760px){.real-world-videos{grid-template-columns:1fr;gap:20px}.real-world-article th,.real-world-article td{font-size:12px}.real-world-article .table-wrap{margin:18px 0}.real-world-diagram{overflow-x:auto}.real-world-diagram img{min-width:540px}}
+@media(max-width:760px){.real-world-videos{gap:8px}.real-world-videos figcaption{padding:8px 6px;overflow-wrap:anywhere}.real-world-article th,.real-world-article td{font-size:12px}.real-world-article .table-wrap{margin:18px 0}.real-world-diagram{overflow-x:auto}.real-world-diagram img{min-width:540px}}
+
+/* Summary time comparisons: labels remain readable independently of bar length. */
+.real-world-times{margin:24px 0}
+.time-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.time-panel{min-width:0;border:1px solid var(--line);background:var(--card-surface);padding:20px}
+.prose .time-panel h3{margin:0;font-family:var(--serif);font-size:26px}
+.prose .time-panel .time-subtitle{margin:5px 0 22px;font-size:13px;color:var(--muted)}
+.time-task+.time-task{margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+.time-task h4{font-size:14px;line-height:1.4;font-weight:500;margin:0 0 12px}
+.time-bar-row{display:grid;grid-template-columns:65px minmax(0,1fr) 72px;align-items:center;gap:9px;margin:10px 0;font-size:12px;line-height:1.5}
+.time-bar-row.astra{--time-color:#237569}.time-bar-row.fable{--time-color:#a6522d}
+.time-model{white-space:nowrap}
+.time-track{display:block;height:8px;background:#dce1d5}
+.time-track>span{display:block;height:100%;background:var(--time-color)}
+.time-bar-row strong{font-weight:500;text-align:right;white-space:nowrap;color:var(--time-color)}
+.time-unfinished{display:flex;flex-wrap:wrap;gap:5px 12px;align-items:baseline;font-size:12px;line-height:1.5;color:#a6522d;border-left:2px dashed #a6522d;padding-left:8px;margin-top:12px}
+.time-unfinished strong{font-weight:500}
+.real-world-times>figcaption{font-size:12px;line-height:1.65;color:var(--muted);margin-top:12px}
+@media(max-width:900px){.time-panels{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:480px){.time-panel{padding:16px}.time-bar-row{gap:7px;grid-template-columns:62px minmax(0,1fr) 69px}}

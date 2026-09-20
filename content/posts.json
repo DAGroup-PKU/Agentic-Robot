@@ -35,15 +35,15 @@
     "projects": [
       "physical-manipulation"
     ],
-    "image": "physical-ethernet.jpg",
-    "image_alt": "Physical robot arms holding an Ethernet cable beside a computer.",
-    "image_caption": "Agents on physical robots · Ethernet insertion",
+    "image": "real-world/hanoi-cover.jpg",
+    "image_alt": "Dual-arm robots stacking Hanoi discs.",
+    "image_caption": "Agents on physical robots · Disc stacking",
     "body": "agents-in-the-real-world.html",
     "results_path": "https://robot-task-evaluation.quincy-wang.chatgpt.site/?run=astra-hanoi-r01",
     "image_style": "photo",
-    "video": "real-world/01_ethernet_hardware_control.mp4",
-    "video_label": "Ethernet insertion on the dual-arm robot platform.",
-    "video_caption": "Agents on physical robots · Ethernet insertion",
+    "video": "real-world/hanoi-cover-from-35s-2x.mp4",
+    "video_label": "Hanoi disc stacking, starting at 35 seconds of the original recording and played at 2× speed.",
+    "video_caption": "Agents on physical robots · Disc stacking · 2× speed",
     "article_media": false
   }
 ]

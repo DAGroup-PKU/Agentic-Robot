@@ -82,3 +82,5 @@ For another video blog, set `video` (local asset filename), `video_label`, and `
 ## Real-world article
 
 `content/articles/agents-in-the-real-world.html` adapts the supplied “Agents in the Real World: From Exploration to Execution” article. Its three videos are copied unchanged from the supplied share folder into `assets/real-world/`; the two SVG diagrams retain their content and geometry with journal colors. The article provides its own media gallery, so its post record sets `article_media: false` to avoid repeating the preview video. Its report links open the `astra-hanoi-r01` run. The original standalone source is preserved.
+
+The real-world blog cover uses the Hanoi recording from 00:35 through the end, encoded at 2× speed (`assets/real-world/hanoi-cover-from-35s-2x.mp4`), with a poster extracted at 00:35. The three original article videos remain unchanged and appear together in a three-column row. The opening Summary shows overall success rates, reported time to first success, and mean stacking rollout times.
