@@ -84,7 +84,7 @@ For another video blog, set `video` (local asset filename), `video_label`, and `
 
 `content/articles/agents-in-the-real-world.html` adapts the supplied “Agents in the Real World: From Exploration to Execution” article. Its three videos are copied unchanged from the supplied share folder into `assets/real-world/`; the two SVG diagrams retain their content and geometry with journal colors. The article provides its own media gallery, so its post record sets `article_media: false` to avoid repeating the preview video. Its report links open the `astra-hanoi-r01` run. The original standalone source is preserved.
 
-The real-world blog cover uses the Hanoi recording from 00:35 through the end, encoded at 2× speed (`assets/real-world/hanoi-cover-from-35s-2x.mp4`), with a poster extracted at 00:35. The three original article videos remain unchanged and appear together in a three-column row. The opening Summary shows overall success rates, reported time to first success, and mean stacking rollout times.
+The real-world blog cover uses the Hanoi recording from 00:35 through the end, encoded at 2× speed (`assets/real-world/hanoi-cover-from-35s-2x.mp4`), with a poster extracted at 00:35. The three original article videos remain unchanged and appear together in a three-column row. The opening Summary shows overall success rates, reported time to first success, and average execution times.
 
 Ethernet rollout means are computed from the five selected recordings per model in the local report export, with inputs retained in `content/real-world-rollout-times.json`: Astra 22.235 min (5/5 successful), Fable 11.086 min (0/5 successful). The chart displays only Astra’s Ethernet rollout time; recording duration includes agent time.
 
@@ -99,3 +99,5 @@ ffmpeg -y -i assets/real-world/01_ethernet_hardware_control.mp4 -vf scale=960:-2
 ```
 
 The delivery copy keeps the full timeline; only resolution and compression change.
+
+The opening Summary and Result combines overall and per-task success in model cards, followed by exploration and execution charts. Asterisks mark shorter times only where both agents completed the task. The old `evaluation-results` anchor points to the summary cards; task-method links target the report’s `strategyTabs` selector. Public task labels consistently use “Hanoi tower sorting”.

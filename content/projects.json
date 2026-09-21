@@ -76,10 +76,10 @@
       }
     ],
     "results_path": "external-physical",
-    "summary": "The physical experiment combines offline coding with online agent API calls during execution. Each agent has five recorded trials for Ethernet insertion, Hanoi disc stacking and block stacking. This is a separate protocol from frozen-code simulation evaluation.",
+    "summary": "The physical experiment combines offline coding with online agent API calls during execution. Each agent has five recorded trials for Ethernet insertion, Hanoi tower sorting and block stacking. This is a separate protocol from frozen-code simulation evaluation.",
     "findings": [
       "The report records 15/15 successes for Astra and 10/15 for Fable.",
-      "Both complete all five block-stacking trials and all five Hanoi-stacking trials.",
+      "Both complete all five block-stacking trials and all five hanoi tower sorting trials.",
       "Astra completes five mechanical Ethernet insertions; Fable completes none of its five recorded insertion attempts."
     ],
     "limits": "Ethernet success means mechanical insertion, not verified electrical connectivity. Block results score stacking, not a full stack-and-unstack cycle. Physical and simulation rates have separate denominators and are not pooled.",

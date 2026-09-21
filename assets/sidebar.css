@@ -241,3 +241,14 @@ body{padding-left:var(--sidebar-width)}
 .citation-status{display:block;font-size:11px;color:var(--muted)}
 .citation-status:not(:empty){margin-top:10px}
 @media(max-width:480px){.article-citation{padding:16px}.article-citation pre{padding:12px;font-size:11px}.prose .citation-heading h3{font-size:20px}}
+
+/* Overall and per-task outcomes share one compact model card. */
+.success-task-results{margin-top:18px;border-top:1px solid var(--line);padding-top:5px}
+.success-task-results>div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5}
+.success-task-results>div:last-child{border-bottom:0;padding-bottom:0}
+.success-task-results strong{font-family:var(--sans);font-size:14px;font-weight:600;white-space:nowrap;color:var(--model-color)}
+.success-task-results strong small{font-size:12px;letter-spacing:0;margin-left:3px;color:var(--muted)}
+.time-shorter{font-size:12px;line-height:0;margin-left:2px}
+@media(max-width:620px){.real-world-article .article-success-summary{grid-template-columns:1fr}.success-task-results>div{font-size:14px}.real-world-article .article-success{padding:18px}}
+
+.time-model-shorter{font-weight:700}
