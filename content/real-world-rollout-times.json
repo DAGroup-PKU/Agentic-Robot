@@ -1,0 +1,66 @@
+{
+  "source": "robot-task-replay/sites-publish/site/tasks.json",
+  "metric": "Mean recorded duration; includes failed runs, not hardware-only time.",
+  "runs": [
+    {
+      "id": "RESUME-20260917-REC02",
+      "model": "Astra",
+      "duration_seconds": 1520.7333333333333,
+      "result": "Mechanical insertion complete"
+    },
+    {
+      "id": "RESUME-20260917-REC03",
+      "model": "Astra",
+      "duration_seconds": 790.4,
+      "result": "Mechanical insertion complete"
+    },
+    {
+      "id": "RESUME-20260917-REC04",
+      "model": "Astra",
+      "duration_seconds": 2649.266666666667,
+      "result": "Mechanical insertion complete"
+    },
+    {
+      "id": "RESUME-20260917-REC05",
+      "model": "Astra",
+      "duration_seconds": 935.6666666666666,
+      "result": "Mechanical insertion complete"
+    },
+    {
+      "id": "RESUME-20260917-REC06",
+      "model": "Astra",
+      "duration_seconds": 774.4,
+      "result": "Mechanical insertion complete"
+    },
+    {
+      "id": "FIVE-20260918-1201-EP01",
+      "model": "Fable5.1",
+      "duration_seconds": 616.6,
+      "result": "Failed"
+    },
+    {
+      "id": "FIVE-20260918-1226-EP01",
+      "model": "Fable5.1",
+      "duration_seconds": 504.93333333333334,
+      "result": "Failed"
+    },
+    {
+      "id": "FIVE-20260918-1430-EP01",
+      "model": "Fable5.1",
+      "duration_seconds": 740.7333333333333,
+      "result": "Failed"
+    },
+    {
+      "id": "FIVE-20260918-1527-EP01",
+      "model": "Fable5.1",
+      "duration_seconds": 734,
+      "result": "Failed"
+    },
+    {
+      "id": "FIVE-20260918-1430-EP02",
+      "model": "Fable5.1",
+      "duration_seconds": 729.6,
+      "result": "Failed"
+    }
+  ]
+}

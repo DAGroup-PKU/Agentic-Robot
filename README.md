@@ -86,6 +86,8 @@ For another video blog, set `video` (local asset filename), `video_label`, and `
 
 The real-world blog cover uses the Hanoi recording from 00:35 through the end, encoded at 2× speed (`assets/real-world/hanoi-cover-from-35s-2x.mp4`), with a poster extracted at 00:35. The three original article videos remain unchanged and appear together in a three-column row. The opening Summary shows overall success rates, reported time to first success, and mean stacking rollout times.
 
+Ethernet rollout means are computed from the five selected recordings per model in the local report export, with inputs retained in `content/real-world-rollout-times.json`: Astra 22.235 min (5/5 successful), Fable 11.086 min (0/5 successful). The chart displays only Astra’s Ethernet rollout time; recording duration includes agent time.
+
 ## ChatGPT Sites hosting
 
 `.openai/hosting.json` identifies the separate Sites project and its `out/` static output. The Sites publishing checkout includes generated assets; the GitHub repository still ignores them. Build with `python build.py --output out`, then package only `.openai/hosting.json` and `out/`.
