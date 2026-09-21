@@ -22,6 +22,29 @@ def read_json(name):
     return json.loads((ROOT / "content" / name).read_text())
 
 
+def article_citation(post, site):
+    authors = [name.rstrip("*") for name in post["authors"]]
+    published = date.fromisoformat(post["date"])
+    url = site["url"].rstrip("/") + f'/posts/{post["slug"]}/'
+    fields = [
+        ("author", " and ".join(authors)),
+        ("title", "{" + post["title"] + "}"),
+        ("year", str(published.year)),
+        ("month", published.strftime("%B")),
+        ("day", str(published.day)),
+        ("url", url),
+    ]
+    bibtex = "@misc{" + post["citation_key"] + ",\n" + ",\n".join(
+        "  " + key + " = {" + value + "}" for key, value in fields
+    ) + "\n}"
+    return f'''<section class="article-citation" aria-labelledby="citation-title" data-citation>
+      <div class="citation-heading"><h3 id="citation-title">Cite this article</h3><button type="button" class="citation-copy" data-copy-citation>Copy BibTeX</button></div>
+      <p class="citation-reference">{esc(', '.join(authors))}. {esc(post['title'])}. <em>{esc(site['name'])}</em>, {esc(post['date_label'])}. <a href="{esc(url)}">Article link ↗</a></p>
+      <pre tabindex="0" aria-label="BibTeX citation"><code data-citation-text>{esc(bibtex)}</code></pre>
+      <span class="citation-status" data-citation-status role="status" aria-live="polite"></span>
+    </section>'''
+
+
 def build(base_path="", output_dir=None):
     base_path = "/" + base_path.strip("/") if base_path.strip("/") else ""
     if not re.fullmatch(r"(?:/[A-Za-z0-9_.-]+)*", base_path) or ".." in base_path.split("/"):
@@ -100,7 +123,7 @@ def build(base_path="", output_dir=None):
     categories = list(dict.fromkeys(p["category"] for p in posts))
     chips = '<button class="filter active" data-filter="all" aria-pressed="true">All blogs</button>' + "".join(f'<button class="filter" data-filter="{esc(c)}" aria-pressed="false">{esc(c)}</button>' for c in categories)
     page("index.html", "Home", site["description"], f'''
-      <section class="journal-intro wrap"><div class="eyebrow"><span class="live-dot"></span> Agent × Robot / Research & experiments</div>
+      <section class="journal-intro wrap"><div class="eyebrow"><span class="live-dot"></span> Agent × Robot</div>
         <div class="intro-row"><h1>Robot using Agent<br><em>in the physical world.</em></h1></div>
       </section>
       <section class="wrap home-blog-grid" aria-label="Latest blogs">{''.join(post_card(p) for p in posts)}</section>
@@ -143,9 +166,10 @@ def build(base_path="", output_dir=None):
         report_links = ''.join(f'<a class="aside-project" href="{esc(report(by_project[slug]["results_path"]))}" target="_blank" rel="noopener noreferrer"><span class="eyebrow">{esc(by_project[slug]["environment"])}</span>{esc(by_project[slug]["short_name"])} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>' for slug in p["projects"])
         related = sorted((post for post in posts if post["slug"] != p["slug"]), key=lambda post: -len(set(post["projects"]) & set(p["projects"])))[:2]
         related_section = f'<section class="wrap related"><div class="section-heading"><h2>Keep exploring</h2><a class="text-link" href="/blogs/">All blogs ↗</a></div><div class="post-grid">{"".join(post_card(post) for post in related)}</div></section>' if related else ''
+        author_note = '<p class="author-note">' + esc(p['author_note']) + '</p>' if p.get('author_note') else ''
         page(f"posts/{p['slug']}/index.html", p["title"], p["excerpt"], f'''
-          <header class="wrap article-header"><a class="back-link" href="/blogs/">← All blogs</a>{post_meta(p)}<h1>{esc(p['title'])}</h1><p class="lede">{esc(p['subtitle'])}</p><div class="byline"><div class="author-byline"><span class="author-label">Authors</span><div class="author-list">{''.join('<span class="author-name">' + esc(author) + '</span>' for author in p.get('authors', [site['name']]))}</div></div><button class="copy-link" data-copy>Copy link <span aria-hidden="true">↗</span></button><span class="sr-only" data-copy-status aria-live="polite"></span></div></header>
-          <div class="wrap article-layout"><article class="prose">{body}<div class="article-cta"><div class="eyebrow">From the story to the evidence</div><h3>Inspect the experiment.</h3><p>Explore the task-level results, methods, and recordings.</p>{external('Open interactive report', p['results_path'], 'button dark')}</div></article><aside class="article-aside"><div class="sticky"><div class="eyebrow">In this article</div><nav class="toc" aria-label="Table of contents">{toc}</nav><div class="eyebrow">Interactive report</div>{report_links}</div></aside></div>
+          <header class="wrap article-header"><a class="back-link" href="/blogs/">← All blogs</a>{post_meta(p)}<h1>{esc(p['title'])}</h1><p class="lede">{esc(p['subtitle'])}</p><div class="article-header-actions">{external("Interactive Webpage", p["results_path"], "button dark")}</div><div class="byline"><div class="author-byline"><span class="author-label">Authors</span><div class="author-list">{''.join('<span class="author-name">' + esc(author) + '</span>' for author in p.get('authors', [site['name']]))}</div>{author_note}</div><button class="copy-link" data-copy>Copy link <span aria-hidden="true">↗</span></button><span class="sr-only" data-copy-status aria-live="polite"></span></div></header>
+          <div class="wrap article-layout"><article class="prose">{body}<div class="article-cta"><div class="eyebrow">From the story to the evidence</div><h3>Inspect the experiment.</h3><p>Explore the task-level results, methods, and recordings.</p>{external('Open interactive report', p['results_path'], 'button dark')}</div>{article_citation(p, site)}</article><aside class="article-aside"><div class="sticky"><div class="eyebrow">In this article</div><nav class="toc" aria-label="Table of contents">{toc}</nav><div class="eyebrow">Interactive report</div>{report_links}</div></aside></div>
           {related_section}
         ''', "blogs", "article-page")
 

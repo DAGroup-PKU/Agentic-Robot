@@ -1,0 +1,26 @@
+{
+  "source": "https://robodojo-evaluation-atlas.bijianxin292430887.chatgpt.site/execution-evidence.json",
+  "source_sha256": "e75d5a66ff19deb3a834fed858f195cbc79e54ce2416c8ee494cf7a33828db39",
+  "retrieved_at": "2026-09-18",
+  "scope": "Astra frozen-policy diagnostics and public GPT-6-Astra online manifests; not a controlled rerun",
+  "timing_definition": {
+    "offline": "Episode callback wall time minus measured neural initialization; simulator startup/reset and finalization excluded. Physics, rendering, observation, inference, planning, IPC and recording retained.",
+    "online": "Sum top-level llm_calls[].latency_s once per unique call_index. API wait component only; no full rollout wall-time boundary is available in these manifests. No video duration proxy."
+  },
+  "sampling": "14 previously successful offline configurations, five layout IDs 0\u20134 each, all outcomes retained. Task names and IDs align; scene assets, hardware, controller and outcome mix are not controlled.",
+  "overall": {
+    "episodes": 70,
+    "offline_successes": 48,
+    "online_successes": 37,
+    "offline_mean_seconds": 60.27466982103485,
+    "offline_success_mean_seconds": 64.25441823806614,
+    "online_mean_llm_wait_seconds": 510.5926805684605,
+    "online_success_mean_llm_wait_seconds": 469.11579341983963,
+    "online_mean_calls": 46.84285714285714,
+    "online_mean_total_tokens": 876599.9571428571,
+    "online_mean_fresh_input_plus_output_tokens": 790606.7142857143
+  },
+  "offline_agent_tokens_per_rollout": 0,
+  "online_total_wall_seconds": null,
+  "online_total_wall_note": "The 70 saved public manifests contain API latency and video frame timelines, but no complete rollout wall-time boundary."
+}

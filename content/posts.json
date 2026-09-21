@@ -1,7 +1,7 @@
 [
   {
     "slug": "robodojo-offline-policy-zero-shot",
-    "title": "Coding Agents as Policies in RoboDojo",
+    "title": "Code-as-Policies with Astra/Fable in RoboDojo",
     "subtitle": "Agent-written robot policies in RoboDojo: develop with feedback, freeze the code, then execute without the agent during evaluation.",
     "excerpt": "Agent-written robot policies in RoboDojo: develop with feedback, freeze the code, then execute without the agent during evaluation.",
     "date": "2026-09-20",
@@ -20,10 +20,17 @@
     "video_caption": "Agent-written robot policies in RoboDojo · Tic-Tac-Toe",
     "results_snapshot": "robodojo-results.json",
     "authors": [
-      "Jianxin Bi",
-      "Qiang Wang",
+      "Jianxin Bi*",
+      "Qiang Wang*",
+      "Rui Ni",
+      "Wenbo Huang",
+      "Shunyu Yang",
+      "Ruiyang Si",
+      "Shulong Jiang",
       "Daquan Zhou"
-    ]
+    ],
+    "author_note": "* Equal contribution",
+    "citation_key": "bi2026codeaspolicies"
   },
   {
     "slug": "agents-in-the-real-world",
@@ -44,6 +51,18 @@
     "video": "real-world/hanoi-cover-from-35s-2x.mp4",
     "video_label": "Hanoi disc stacking, starting at 35 seconds of the original recording and played at 2× speed.",
     "video_caption": "Agents on physical robots · Disc stacking · 2× speed",
-    "article_media": false
+    "article_media": false,
+    "authors": [
+      "Qiang Wang*",
+      "Jianxin Bi*",
+      "Shulong Jiang",
+      "Wenbo Huang",
+      "Shunyu Yang",
+      "Ruiyang Si",
+      "Rui Ni",
+      "Daquan Zhou"
+    ],
+    "author_note": "* Equal contribution",
+    "citation_key": "wang2026agentsrealworld"
   }
 ]

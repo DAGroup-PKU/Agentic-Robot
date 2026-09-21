@@ -152,19 +152,38 @@
     });
   }
 
+  async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const field = document.createElement('textarea');
+      field.value = text; field.style.position = 'fixed'; field.style.opacity = '0';
+      document.body.appendChild(field); field.select();
+      const copied = document.execCommand('copy'); field.remove();
+      if (!copied) throw new Error('Clipboard unavailable');
+    }
+  }
+
+  document.querySelectorAll('[data-copy-citation]').forEach(button => {
+    button.addEventListener('click', async () => {
+      const block = button.closest('[data-citation]');
+      const status = block.querySelector('[data-citation-status]');
+      try {
+        await copyText(block.querySelector('[data-citation-text]').textContent);
+        button.textContent = 'Copied ✓';
+        status.textContent = 'BibTeX citation copied.';
+      } catch {
+        status.textContent = 'Select and copy the citation above.';
+      }
+    });
+  });
+
   const copy = document.querySelector('[data-copy]');
   if (copy) copy.addEventListener('click', async () => {
     const status = document.querySelector('[data-copy-status]');
     const url = location.href.split('#')[0];
     try {
-      if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(url);
-      else {
-        const field = document.createElement('textarea');
-        field.value = url; field.style.position = 'fixed'; field.style.opacity = '0';
-        document.body.appendChild(field); field.select();
-        const copied = document.execCommand('copy'); field.remove();
-        if (!copied) throw new Error('Clipboard unavailable');
-      }
+      await copyText(url);
       copy.textContent = 'Link copied ✓'; status.textContent = 'Article link copied to clipboard.';
     } catch {
       copy.textContent = 'Copy the address above'; status.textContent = 'Clipboard unavailable. Copy this page’s address from your browser.';

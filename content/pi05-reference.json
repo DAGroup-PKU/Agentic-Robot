@@ -1,0 +1,104 @@
+{
+  "model": "π0.5",
+  "official_model_key": "Pi_05",
+  "source_url": "https://robodojo-benchmark.com/leaderboard",
+  "source_asset_url": "https://robodojo-benchmark.com/assets/index-BjFgY_-Q.js",
+  "source_asset_sha256": "13e81495e3493095fb943a63d7ddf3774529a3421b81376426fde5e33d9210eb",
+  "retrieved_at": "2026-09-20",
+  "leaderboard_data_version": "2026.9.20",
+  "source_units": "Official successRate and score are percentages; divided by 100 in this snapshot.",
+  "comparison_scope": "Published official reference, not rerun on our 20-episode agent panel. Same 18 task names; separate training and evaluation protocols.",
+  "aggregation": "Unweighted mean of task success rates within each existing category, including zero-success tasks.",
+  "tasks": [
+    {
+      "task": "align_blocks",
+      "success_rate": 0.0,
+      "mean_score": 0.0
+    },
+    {
+      "task": "cover_blocks",
+      "success_rate": 0.1333,
+      "mean_score": 0.1907
+    },
+    {
+      "task": "stack_blocks",
+      "success_rate": 0.1333,
+      "mean_score": 0.2253
+    },
+    {
+      "task": "stack_blocks_by_language",
+      "success_rate": 0.0,
+      "mean_score": 0.0173
+    },
+    {
+      "task": "stack_blocks_random",
+      "success_rate": 0.0,
+      "mean_score": 0.012
+    },
+    {
+      "task": "arrange_largest_number",
+      "success_rate": 0.013300000000000001,
+      "mean_score": 0.0513
+    },
+    {
+      "task": "solve_equation",
+      "success_rate": 0.0,
+      "mean_score": 0.0
+    },
+    {
+      "task": "press_by_number",
+      "success_rate": 0.0,
+      "mean_score": 0.0
+    },
+    {
+      "task": "play_tic_tac_toe",
+      "success_rate": 0.013300000000000001,
+      "mean_score": 0.0823
+    },
+    {
+      "task": "general_pickup",
+      "success_rate": 0.12,
+      "mean_score": 0.12
+    },
+    {
+      "task": "classify_objects_by_language",
+      "success_rate": 0.0,
+      "mean_score": 0.006
+    },
+    {
+      "task": "put_bottles_into_dustbin",
+      "success_rate": 0.6933,
+      "mean_score": 0.7993000000000001
+    },
+    {
+      "task": "fold_clothes",
+      "success_rate": 0.38670000000000004,
+      "mean_score": 0.48
+    },
+    {
+      "task": "fold_clothes_random",
+      "success_rate": 0.0933,
+      "mean_score": 0.1653
+    },
+    {
+      "task": "play_Xylophone",
+      "success_rate": 0.0,
+      "mean_score": 0.0
+    },
+    {
+      "task": "deposit_coin",
+      "success_rate": 0.0067,
+      "mean_score": 0.032
+    },
+    {
+      "task": "swap_T",
+      "success_rate": 0.0067,
+      "mean_score": 0.0067
+    },
+    {
+      "task": "stack_bowls",
+      "success_rate": 0.72,
+      "mean_score": 0.76
+    }
+  ]
+}

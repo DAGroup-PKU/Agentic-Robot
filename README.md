@@ -31,6 +31,7 @@ Use `python serve.py --port 8788` for another port. The server binds to loopback
 | `content/articles/*.html` | Article body, with semantic HTML and section IDs |
 | `content/projects.json` | Project descriptions, methods, findings, evidence links |
 | `content/robodojo-results.json` | Saved report comparison snapshot backing the blog’s reported results |
+| `content/rollout-comparison.json` | Source and aggregate values for the historical rollout time/token comparison |
 | `assets/styles.css` | Base visual design and responsive layout |
 | `assets/sidebar.css` | Left navigation, compact homepage, and mobile drawer |
 | `assets/app.js` | Search, filters, navigation, copy link, local refresh |
@@ -45,7 +46,7 @@ The current RoboDojo article summarizes the saved evaluation evidence. Zero-shot
 2. Add its cover under `assets/` and an entry in `content/posts.json`, following an existing entry. `slug` becomes `/posts/<slug>/`; `projects` links it to one or more existing project slugs. Reading time is computed from the body.
 3. Keep posts in the desired display order. The Blogs page filters come from the post categories. Set `results_path` to a path in the simulation report, `external-physical` for the current physical report, or a complete HTTPS URL for an independent report.
 
-Set `authors` in the post record to display the author byline. Article bodies can use `{{RESULTS_URL}}` and `{{PHYSICAL_URL}}`. The current post also uses `{{TICTACTOE_PRIMITIVES}}` to include `content/articles/tictactoe-primitive-example.html`; its stage interactions are defined in `assets/app.js`. Treat body files as trusted authored HTML; the generator is not designed to ingest untrusted submissions.
+Every blog header includes an Interactive Webpage button using its `results_path`. Set `authors` in the post record to display the author byline. Each article ends with a citation block and Copy BibTeX button. Set a stable `citation_key` in the post record; citations use the canonical `url` in `content/site.json`, preserve author order, and omit equal-contribution marks from the BibTeX author names. Article bodies can use `{{RESULTS_URL}}` and `{{PHYSICAL_URL}}`. The current post also uses `{{TICTACTOE_PRIMITIVES}}` to include `content/articles/tictactoe-primitive-example.html`; its stage interactions are defined in `assets/app.js`. Treat body files as trusted authored HTML; the generator is not designed to ingest untrusted submissions.
 
 ## Add a project
 
@@ -63,7 +64,7 @@ This generates `public/`: HTML, CSS, JavaScript, images and SVGs. A static host 
 
 ## GitHub Pages
 
-The repository is private and the website is not published. The organization’s current plan does not support GitHub Pages for this private repository. A manual `.github/workflows/pages.yml` workflow is included for future hosting: it builds, checks internal links and assets, and publishes `public/` when explicitly dispatched. Once Pages hosting is available, select **GitHub Actions** in repository Settings → Pages before running it. Pushes do not trigger deployment. The workflow reads the configured base path, so repository hosting and custom domains use the same source. Generated output and Python caches are ignored by Git.
+The GitHub repository remains private. The public blog is hosted separately at https://agent-x-robot.bijianxin292430887.chatgpt.site/. The organization’s current plan does not support GitHub Pages for this private repository. A manual `.github/workflows/pages.yml` workflow is included for future hosting: it builds, checks internal links and assets, and publishes `public/` when explicitly dispatched. Once Pages hosting is available, select **GitHub Actions** in repository Settings → Pages before running it. Pushes do not trigger deployment. The workflow reads the configured base path, so repository hosting and custom domains use the same source. Generated output and Python caches are ignored by Git.
 
 ## Evidence
 
@@ -75,7 +76,7 @@ The homepage contains blog cards with a date, estimated reading time, title, sum
 
 ## RoboDojo media provenance
 
-The tic-tac-toe video is copied without edits from `../evaluation-atlas/out/videos/7047d73917c9-0-2.mp4`. Its report metadata records a successful earlier development episode on 2026-09-14; it is not scored-batch footage or a representative sample. The video uses native playback controls and does not autoplay. The poster and category radar come from the same saved report build. The radar’s white canvas and plot backgrounds are made transparent to blend with the blog; data geometry and model colors are unchanged. `content/robodojo-results.json` is an unchanged copy of that report’s `comparison.json` (snapshot 2026-09-17). Refresh the snapshot and radar together if results change. The public URL rejected automated retrieval during this edit; the local report artifacts were used.
+The tic-tac-toe video is copied without edits from `../evaluation-atlas/out/videos/7047d73917c9-0-2.mp4`. Its report metadata records a successful earlier development episode on 2026-09-14; it is not scored-batch footage or a representative sample. The video uses native playback controls and does not autoplay. The poster comes from the same saved report build. The transparent category radar is generated by `scripts/build_radar.py` from `content/robodojo-results.json` and `content/pi05-reference.json`. The latter records the 18 official π0.5 task values, source URL, asset hash, and leaderboard version (2026.9.20). All curves use unweighted task means within the same six categories, including zeros; π0.5 is explicitly labeled as a separate official evaluation. To regenerate the SVG, run `python scripts/build_radar.py` in an environment with matplotlib installed; the ordinary site build and hosting require no plotting dependency. `content/robodojo-results.json` is an unchanged copy of that report’s `comparison.json` (snapshot 2026-09-17). Refresh the snapshot and radar together if results change. The public URL rejected automated retrieval during this edit; the local report artifacts were used.
 
 For another video blog, set `video` (local asset filename), `video_label`, and `video_caption` alongside the existing image fields, which supply the poster. The `results_snapshot` field records the evidence file for editorial reference; charts and results belong in the article body.
 
@@ -84,3 +85,15 @@ For another video blog, set `video` (local asset filename), `video_label`, and `
 `content/articles/agents-in-the-real-world.html` adapts the supplied “Agents in the Real World: From Exploration to Execution” article. Its three videos are copied unchanged from the supplied share folder into `assets/real-world/`; the two SVG diagrams retain their content and geometry with journal colors. The article provides its own media gallery, so its post record sets `article_media: false` to avoid repeating the preview video. Its report links open the `astra-hanoi-r01` run. The original standalone source is preserved.
 
 The real-world blog cover uses the Hanoi recording from 00:35 through the end, encoded at 2× speed (`assets/real-world/hanoi-cover-from-35s-2x.mp4`), with a poster extracted at 00:35. The three original article videos remain unchanged and appear together in a three-column row. The opening Summary shows overall success rates, reported time to first success, and mean stacking rollout times.
+
+## ChatGPT Sites hosting
+
+`.openai/hosting.json` identifies the separate Sites project and its `out/` static output. The Sites publishing checkout includes generated assets; the GitHub repository still ignores them. Build with `python build.py --output out`, then package only `.openai/hosting.json` and `out/`.
+
+For Sites delivery, the Ethernet hardware recording exceeds the per-asset limit. Re-encode the generated copy (preserving the original in `assets/`) before packaging:
+
+```bash
+ffmpeg -y -i assets/real-world/01_ethernet_hardware_control.mp4 -vf scale=960:-2 -c:v libx264 -preset fast -crf 25 -threads 2 -c:a copy -movflags +faststart out/assets/real-world/01_ethernet_hardware_control.mp4
+```
+
+The delivery copy keeps the full timeline; only resolution and compression change.
