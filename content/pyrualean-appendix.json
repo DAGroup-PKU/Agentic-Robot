@@ -1,0 +1,246 @@
+{
+ "per_benchmark": 5,
+ "selection": "per benchmark, the task instances both agents solved whose token ratio (tool calling's prompt tokens over PyRUA-Lean's, whole episodes) is closest to the benchmark's median, at most one per task and none of Figure 1's task, ties by cell (content/pyrualean-results.json, section main)",
+ "episodes": [
+  {
+   "slug": "libero-objectswap-t0-s1",
+   "benchmark": "LIBERO-PRO",
+   "cell": [
+    "object_swap",
+    0,
+    1
+   ],
+   "prefixes": [
+    "e4d"
+   ]
+  },
+  {
+   "slug": "libero-spatialswap-t5-s1",
+   "benchmark": "LIBERO-PRO",
+   "cell": [
+    "spatial_swap",
+    5,
+    1
+   ],
+   "prefixes": [
+    "e5"
+   ]
+  },
+  {
+   "slug": "libero-goalswap-t4-s3",
+   "benchmark": "LIBERO-PRO",
+   "cell": [
+    "goal_swap",
+    4,
+    3
+   ],
+   "prefixes": [
+    "e6"
+   ]
+  },
+  {
+   "slug": "libero-spatialswap-t9-s3",
+   "benchmark": "LIBERO-PRO",
+   "cell": [
+    "spatial_swap",
+    9,
+    3
+   ],
+   "prefixes": [
+    "e6"
+   ]
+  },
+  {
+   "slug": "libero-objectswap-t3-s1",
+   "benchmark": "LIBERO-PRO",
+   "cell": [
+    "object_swap",
+    3,
+    1
+   ],
+   "prefixes": [
+    "e5"
+   ]
+  },
+  {
+   "slug": "robotwin-rotate-qrcode-s100001",
+   "benchmark": "RoboTwin 2.0",
+   "cell": [
+    "demo_randomized",
+    "rotate_qrcode",
+    100001
+   ],
+   "prefixes": [
+    "rt2"
+   ]
+  },
+  {
+   "slug": "robotwin-open-laptop-s100008",
+   "benchmark": "RoboTwin 2.0",
+   "cell": [
+    "demo_randomized",
+    "open_laptop",
+    100008
+   ],
+   "prefixes": [
+    "rt1"
+   ]
+  },
+  {
+   "slug": "robotwin-place-container-plate-s100000",
+   "benchmark": "RoboTwin 2.0",
+   "cell": [
+    "demo_randomized",
+    "place_container_plate",
+    100000
+   ],
+   "prefixes": [
+    "rt2"
+   ]
+  },
+  {
+   "slug": "robotwin-move-can-pot-s100004",
+   "benchmark": "RoboTwin 2.0",
+   "cell": [
+    "demo_randomized",
+    "move_can_pot",
+    100004
+   ],
+   "prefixes": [
+    "rt1"
+   ]
+  },
+  {
+   "slug": "robotwin-shake-bottle-s100008",
+   "benchmark": "RoboTwin 2.0",
+   "cell": [
+    "demo_randomized",
+    "shake_bottle",
+    100008
+   ],
+   "prefixes": [
+    "rt1"
+   ]
+  },
+  {
+   "slug": "robocasa-close-toaster-oven-door-s1",
+   "benchmark": "RoboCasa365 atomic",
+   "cell": [
+    "target",
+    "CloseToasterOvenDoor",
+    1
+   ],
+   "prefixes": [
+    "rc1"
+   ]
+  },
+  {
+   "slug": "robocasa-pick-place-toaster-to-counter-s4",
+   "benchmark": "RoboCasa365 atomic",
+   "cell": [
+    "target",
+    "PickPlaceToasterToCounter",
+    4
+   ],
+   "prefixes": [
+    "rc1"
+   ]
+  },
+  {
+   "slug": "robocasa-coffee-setup-mug-s5",
+   "benchmark": "RoboCasa365 atomic",
+   "cell": [
+    "target",
+    "CoffeeSetupMug",
+    5
+   ],
+   "prefixes": [
+    "rc1"
+   ]
+  },
+  {
+   "slug": "robocasa-turn-on-sink-faucet-s4",
+   "benchmark": "RoboCasa365 atomic",
+   "cell": [
+    "target",
+    "TurnOnSinkFaucet",
+    4
+   ],
+   "prefixes": [
+    "rc1"
+   ]
+  },
+  {
+   "slug": "robocasa-turn-on-electric-kettle-s4",
+   "benchmark": "RoboCasa365 atomic",
+   "cell": [
+    "target",
+    "TurnOnElectricKettle",
+    4
+   ],
+   "prefixes": [
+    "rc1"
+   ]
+  },
+  {
+   "slug": "robocasa-scrub-cutting-board-s3",
+   "benchmark": "RoboCasa365 composite",
+   "cell": [
+    "target",
+    "ScrubCuttingBoard",
+    3
+   ],
+   "prefixes": [
+    "rcc1"
+   ]
+  },
+  {
+   "slug": "robocasa-wash-lettuce-s1",
+   "benchmark": "RoboCasa365 composite",
+   "cell": [
+    "target",
+    "WashLettuce",
+    1
+   ],
+   "prefixes": [
+    "rcc1"
+   ]
+  },
+  {
+   "slug": "robocasa-stack-bowls-cabinet-s1",
+   "benchmark": "RoboCasa365 composite",
+   "cell": [
+    "target",
+    "StackBowlsCabinet",
+    1
+   ],
+   "prefixes": [
+    "rcc1"
+   ]
+  },
+  {
+   "slug": "robocasa-cutting-tool-selection-s2",
+   "benchmark": "RoboCasa365 composite",
+   "cell": [
+    "target",
+    "CuttingToolSelection",
+    2
+   ],
+   "prefixes": [
+    "rcc1"
+   ]
+  },
+  {
+   "slug": "robocasa-load-dishwasher-s5",
+   "benchmark": "RoboCasa365 composite",
+   "cell": [
+    "target",
+    "LoadDishwasher",
+    5
+   ],
+   "prefixes": [
+    "rcc1"
+   ]
+  }
+ ]
+}

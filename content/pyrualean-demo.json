@@ -1,0 +1,622 @@
+{
+ "task": "Pick the akita black bowl on the stove and place it on the plate",
+ "cell": "libero_spatial_swap task 7 seed 2",
+ "rpent": {
+  "requests": [
+   {
+    "k": 1,
+    "cum": 20074,
+    "calls": [
+     {
+      "tool": "read_text_file",
+      "args": "strict_hybrid_guide.md"
+     },
+     {
+      "tool": "read_text_file",
+      "args": "pro_hybrid_guide.md"
+     },
+     {
+      "tool": "read_text_file",
+      "args": "env_calibration.md"
+     }
+    ],
+    "images": 0,
+    "view": {
+     "step": 0,
+     "agentview": "rpent-agentview-00.jpg",
+     "wrist": "rpent-wrist-00.jpg"
+    },
+    "note": "I’ll read the three guides, then inspect and localize the scene before moving."
+   },
+   {
+    "k": 2,
+    "cum": 50060,
+    "calls": [
+     {
+      "tool": "view_env_state",
+      "args": "step=0"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 0,
+     "agentview": "rpent-agentview-00.jpg",
+     "wrist": "rpent-wrist-00.jpg"
+    },
+    "note": "The guides require relation-based selection and wrist refinement. I’ll inspect the authoritative task and initial images."
+   },
+   {
+    "k": 3,
+    "cum": 83047,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "row 399, col 342"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 421, col 350"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 417, col 378"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 511, col 745"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 522, col 719"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 523, col 771"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 475, col 348"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 479, col 380"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 493, col 366"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 412, col 45"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 419, col 72"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 399, col 78"
+     }
+    ],
+    "images": 0,
+    "view": {
+     "step": 0,
+     "agentview": "rpent-agentview-00.jpg",
+     "wrist": "rpent-wrist-00.jpg"
+    },
+    "note": "The target is the bowl on the metal stove, not the cabinet bowl; the destination is the white, red-ringed plate. I’ll back-project several pixels on each relevant surface."
+   },
+   {
+    "k": 4,
+    "cum": 118112,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.20, 0.21, 1.10]"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 1,
+     "agentview": "rpent-agentview-01.jpg",
+     "wrist": "rpent-wrist-01.jpg"
+    },
+    "note": "Depth separates the stove bowl from the higher cabinet bowl. I’ll move above the plate first to refine its center without touching it."
+   },
+   {
+    "k": 5,
+    "cum": 156819,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "row 615, col 505"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 595, col 485"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 635, col 525"
+     }
+    ],
+    "images": 0,
+    "view": {
+     "step": 1,
+     "agentview": "rpent-agentview-01.jpg",
+     "wrist": "rpent-wrist-01.jpg"
+    },
+    "note": "The wrist view shows the same red-ringed plate, centered below the gripper. I’ll refine its center and check consistency with the agentview anchor."
+   },
+   {
+    "k": 6,
+    "cum": 196076,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.25, 0.03, 1.14]"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 2,
+     "agentview": "rpent-agentview-02.jpg",
+     "wrist": "rpent-wrist-02.jpg"
+    },
+    "note": "The refined plate center agrees within 4 mm. I’ll cross toward the stove through a midpoint to keep lateral motion below 30 cm."
+   },
+   {
+    "k": 7,
+    "cum": 238567,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.30, -0.15, 1.14]"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 3,
+     "agentview": "rpent-agentview-03.jpg",
+     "wrist": "rpent-wrist-03.jpg"
+    },
+    "note": "The midpoint move is stable and neither bowl moved. I’ll position above the stove bowl for close-range geometry."
+   },
+   {
+    "k": 8,
+    "cum": 284287,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "row 543, col 510"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 525, col 490"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 561, col 530"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 385, col 470"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 400, col 430"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 385, col 495"
+     }
+    ],
+    "images": 0,
+    "view": {
+     "step": 3,
+     "agentview": "rpent-agentview-03.jpg",
+     "wrist": "rpent-wrist-03.jpg"
+    },
+    "note": "The wrist view confirms the selected bowl overlaps the stove burner. I’ll refine the bowl and exposed burner surface, then finalize the grasp plan."
+   },
+   {
+    "k": 9,
+    "cum": 331094,
+    "calls": [
+     {
+      "tool": "pi0_pick",
+      "args": "\"pick up the black bowl on the stove\""
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 4,
+     "agentview": "rpent-agentview-04.jpg",
+     "wrist": "rpent-wrist-04.jpg"
+    },
+    "note": "All required surfaces are localized; wrist refinements differ from agentview by under 3 cm. I’ll grasp only the stove bowl, then carry it to the plate using the required +4.5 cm gripper-y offset."
+   },
+   {
+    "k": 10,
+    "cum": 381636,
+    "calls": [
+     {
+      "tool": "set_gripper",
+      "args": "1"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 5,
+     "agentview": "rpent-agentview-05.jpg",
+     "wrist": "rpent-wrist-05.jpg"
+    },
+    "note": "The stove is empty beneath the raised bowl, and the fingers retain a 1.1 cm gap. I’ll firm the verified grasp before lifting."
+   },
+   {
+    "k": 11,
+    "cum": 435291,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.23, -0.09, 1.16]"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 6,
+     "agentview": "rpent-agentview-06.jpg",
+     "wrist": "rpent-wrist-06.jpg"
+    },
+    "note": "The bowl remains secure after tightening. I’ll lift vertically to clear the stove before moving sideways."
+   },
+   {
+    "k": 12,
+    "cum": 492420,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.21, 0.09, 1.16]"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 7,
+     "agentview": "rpent-agentview-07.jpg",
+     "wrist": "rpent-wrist-07.jpg"
+    },
+    "note": "The bowl is clear of the stove and remains in the gripper. I’ll carry it through a safe midpoint toward the plate."
+   },
+   {
+    "k": 13,
+    "cum": 552779,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.20, 0.26, 1.16]"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 8,
+     "agentview": "rpent-agentview-08.jpg",
+     "wrist": "rpent-wrist-08.jpg"
+    },
+    "note": "The bowl is still visibly held at the midpoint. I’ll move above the plate with the planned grasp offset, then check alignment before descending."
+   },
+   {
+    "k": 14,
+    "cum": 616499,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "row 245, col 762"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 247, col 780"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 239, col 750"
+     }
+    ],
+    "images": 0,
+    "view": {
+     "step": 8,
+     "agentview": "rpent-agentview-08.jpg",
+     "wrist": "rpent-wrist-08.jpg"
+    },
+    "note": "The held bowl is above the plate region. I’ll check its current position from visible interior pixels before the final descent."
+   },
+   {
+    "k": 15,
+    "cum": 680850,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "row 302, col 772"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 303, col 782"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 300, col 792"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 785, col 900"
+     }
+    ],
+    "images": 0,
+    "view": {
+     "step": 8,
+     "agentview": "rpent-agentview-08.jpg",
+     "wrist": "rpent-wrist-08.jpg"
+    },
+    "note": "The interior samples are biased toward the bowl’s far wall. I’ll sample its small base as well to avoid an unnecessary lateral correction."
+   },
+   {
+    "k": 16,
+    "cum": 746423,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.20, 0.26, 0.96]"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 9,
+     "agentview": "rpent-agentview-09.jpg",
+     "wrist": "rpent-wrist-09.jpg"
+    },
+    "note": "The base and wrist samples support alignment over the plate. I’ll keep the lateral position and lower the bowl for a short release."
+   },
+   {
+    "k": 17,
+    "cum": 815615,
+    "calls": [
+     {
+      "tool": "release",
+      "args": "max_steps=20"
+     }
+    ],
+    "images": 3,
+    "view": {
+     "step": 10,
+     "agentview": "rpent-agentview-10.jpg",
+     "wrist": "rpent-wrist-10.jpg"
+    },
+    "note": "Both views show the bowl aligned over the ceramic plate with a short drop remaining. I’ll release it now."
+   },
+   {
+    "k": 18,
+    "cum": 888097,
+    "calls": [
+     {
+      "tool": "write_text_file",
+      "args": "recipe.jsonl"
+     },
+     {
+      "tool": "write_text_file",
+      "args": "audit.json"
+     }
+    ],
+    "images": 0,
+    "view": {
+     "step": 10,
+     "agentview": "rpent-agentview-10.jpg",
+     "wrist": "rpent-wrist-10.jpg"
+    },
+    "note": "The release returned `terminated: true`. I’ll save the successful sequence and perception audit, then finish without further motion."
+   },
+   {
+    "k": 19,
+    "cum": 962783,
+    "calls": [
+     {
+      "tool": "finish",
+      "args": "success"
+     }
+    ],
+    "images": 0,
+    "view": {
+     "step": 10,
+     "agentview": "rpent-agentview-10.jpg",
+     "wrist": "rpent-wrist-10.jpg"
+    },
+    "note": "The recipe and audit are saved. I’ll finish with the confirmed success."
+   },
+   {
+    "k": 20,
+    "cum": 1037677,
+    "calls": [],
+    "images": 0,
+    "view": {
+     "step": 10,
+     "agentview": "rpent-agentview-10.jpg",
+     "wrist": "rpent-wrist-10.jpg"
+    },
+    "note": ""
+   }
+  ],
+  "solved_at": 17,
+  "start": {
+   "step": 0,
+   "agentview": "rpent-agentview-00.jpg",
+   "wrist": "rpent-wrist-00.jpg"
+  }
+ },
+ "cells": {
+  "requests": [
+   {
+    "k": 1,
+    "tool": "python",
+    "code": "print(robo.state())\nbowl = robo.segment('the black patterned bowl on the stove')\nplate = robo.segment('the white plate with red rings')\nprint('bowl', bowl)\nprint('plate', plate)\nprint('table', robo.back_project(630, 610))",
+    "stdout": "State(step=0, task='Pick the akita black bowl on the stove and place it on the plate', eef_pos=(-0.2084646605658239, 2.2280279562207825e-12, 1.17327947572964), eef_quat=(0.9995966048795351, 0.0002462128336614966, -0.028400120485873, -6.9952962218605e-06), gripper_qpos=(0.03903962231833403, -0.03903956200474381), gripper_opening=0.07807918432307784, object_names=('akita_black_bowl_1', 'akita_black_bowl_2', 'cookies_1', 'glazed_rim_porcelain_ramekin_1', 'plate_1'), terminated=False, truncated=False)\nbowl Segment(found=True, world_xyz=(-0.2981, -0.1497, 0.9634), score=0.934, box=[287.8723449707031, 373.1368713378906, 411.3923034667969, 464.3982849121094], camera='agentview', step=0, overlay_artifact='segment_overlay_00.png', error=None)\nplate Segment(found=True, world_xyz=(-0.2073, 0.212, 0.9097), score=0.973, box=[670.2548217773438, 466.281005859375, 825.4109497070312, 561.40625], camera='agentview', step=0, overlay_artifact='segment_overlay_01.png', error=None)\ntable BackProjection(world_xyz=(-0.0668, 0.0801, 0.9004), pixel=(630, 610), camera='agentview', resolution='high', step=0, image_size=(1024, 1024))\n",
+    "images": 0,
+    "shown": [],
+    "calls": 4,
+    "primitives": [
+     "back_project",
+     "segment",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 0,
+     "agentview": "code-agentview-00.jpg",
+     "wrist": "code-wrist-00.jpg"
+    },
+    "cum": 21946
+   },
+   {
+    "k": 2,
+    "tool": "python",
+    "code": "assert bowl.found and plate.found\napproach = robo.move_to([bowl.world_xyz[0], bowl.world_xyz[1], bowl.world_xyz[2]+0.19], gripper=-1)\nprint('approach', approach)\nif approach.reached:\n    pick = robo.pi0_pick('pick up the black bowl on the stove', max_chunks=20)\n    print('pick', pick)\nprint(robo.state())\nrobo.show('agentview')\nrobo.show('wrist')",
+    "stdout": "approach Move(target_xyz=(-0.29809999465942383, -0.14970000088214874, 1.15339994430542), final_eef_pos=(-0.3018, -0.1394, 1.1509), final_dist_m=0.0112, reached=True, steps_used=24, max_steps=80, terminated=False, truncated=False)\npick Pick(success=True, chunks_used=12, max_chunks=20, peak_lift_m=0.06322354078292847, min_gripper_opening=0.013593371957540512, final_gripper_opening=0.013593371957540512, terminated=False, truncated=False, diagnostics={'start_eef_z': 1.1509, 'peak_eef_z': 1.1509, 'min_eef_z': 0.9512, 'post_min_peak_z': 1.0144, 'descent_m': 0.1997, 'post_min_ascent_m': 0.0632, 'descent_done': True, 'lift_thresh': 0.05, 'gripper_closed_thresh': 0.06, 'gripper_open_thresh': 0.0, 'descent_thresh': 0.1})\nState(step=2, task='Pick the akita black bowl on the stove and place it on the plate', eef_pos=(-0.2307203356641332, -0.0948626162266033, 1.014409205695121), eef_quat=(0.9978210763839446, -0.04066388310071761, -0.0005534704736836205, 0.0519542279857104), gripper_qpos=(0.006096527768237651, -0.0074968446712721645), gripper_opening=0.013593372439509815, object_names=('akita_black_bowl_1', 'akita_black_bowl_2', 'cookies_1', 'glazed_rim_porcelain_ramekin_1', 'plate_1'), terminated=False, truncated=False)\n",
+    "images": 2,
+    "shown": [
+     "agentview",
+     "wrist"
+    ],
+    "calls": 5,
+    "primitives": [
+     "artifact",
+     "move_to",
+     "pi0_pick",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 2,
+     "agentview": "code-agentview-02.jpg",
+     "wrist": "code-wrist-02.jpg"
+    },
+    "cum": 44474
+   },
+   {
+    "k": 3,
+    "tool": "python",
+    "code": "print(robo.set_gripper(+1, steps=8))\nheld_state = robo.state()\nprint('lift', robo.move_to([held_state.eef_pos[0], held_state.eef_pos[1], 1.18], gripper=+1, step_clip=0.012))\nheld_bowl = robo.segment('the black patterned bowl held by the gripper')\nprint('held bowl', held_bowl)\nprint(robo.state())",
+    "stdout": "Gripper(gripper=1.0, steps=8, terminated=False, truncated=False)\nlift Move(target_xyz=(-0.22759617865085602, -0.08485797047615051, 1.1799999475479126), final_eef_pos=(-0.2281, -0.0848, 1.1684), final_dist_m=0.0117, reached=True, steps_used=51, max_steps=80, terminated=False, truncated=False)\nheld bowl Segment(found=True, world_xyz=(-0.259, -0.1318, 0.9312), score=0.574, box=[300.4018249511719, 417.5738220214844, 439.1397399902344, 506.8263244628906], camera='agentview', step=4, overlay_artifact='segment_overlay_00.png', error=None)\nState(step=4, task='Pick the akita black bowl on the stove and place it on the plate', eef_pos=(-0.2281245050085313, -0.0848047650548607, 1.168354331010127), eef_quat=(0.9970164339052183, -0.050085334876417587, 0.010678083135974424, 0.05775524472962604), gripper_qpos=(0.0022240449767962174, -0.002475913673330747), gripper_opening=0.004699958650126964, object_names=('akita_black_bowl_1', 'akita_black_bowl_2', 'cookies_1', 'glazed_rim_porcelain_ramekin_1', 'plate_1'), terminated=False, truncated=False)\n",
+    "images": 0,
+    "shown": [],
+    "calls": 5,
+    "primitives": [
+     "move_to",
+     "segment",
+     "set_gripper",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 4,
+     "agentview": "code-agentview-04.jpg",
+     "wrist": "code-wrist-04.jpg"
+    },
+    "cum": 70130
+   },
+   {
+    "k": 4,
+    "tool": "python",
+    "code": "robo.show('agentview')\nrobo.show('wrist')\nprint('bowl now', robo.segment('the black patterned bowl on the stove'))",
+    "stdout": "bowl now Segment(found=True, world_xyz=(-0.0104, -0.2908, 1.1592), score=0.895, box=[-1.5631027221679688, 357.8877258300781, 132.6639404296875, 492.2754211425781], camera='agentview', step=4, overlay_artifact='segment_overlay_01.png', error=None)\n",
+    "images": 2,
+    "shown": [
+     "agentview",
+     "wrist"
+    ],
+    "calls": 3,
+    "primitives": [
+     "artifact",
+     "segment"
+    ],
+    "view": {
+     "step": 4,
+     "agentview": "code-agentview-04.jpg",
+     "wrist": "code-wrist-04.jpg"
+    },
+    "cum": 96469
+   },
+   {
+    "k": 5,
+    "tool": "python",
+    "code": "held_bowl = robo.segment(point=(267, 339))\nprint('held localization', held_bowl)\nassert held_bowl.found and held_bowl.world_xyz[2] > 1.05\ncarry_state = robo.state()\ngrip_offset = np.array(carry_state.eef_pos[:2]) - np.array(held_bowl.world_xyz[:2])\nplace_xy = np.array(plate.world_xyz[:2]) + grip_offset\nprint('grip offset', grip_offset, 'place xy', place_xy)\nmid_xy = (np.array(carry_state.eef_pos[:2]) + place_xy)/2\nfor waypoint_xy in [mid_xy, place_xy]:\n    move = robo.move_to([*waypoint_xy, carry_state.eef_pos[2]], gripper=+1, step_clip=0.012)\n    print('carry', move)\n    if not move.reached or move.terminated:\n        break\nrobo.show('agentview')",
+    "stdout": "held localization Segment(found=True, world_xyz=(-0.27, -0.1478, 1.1406), score=0.73, box=None, camera='agentview', step=4, overlay_artifact='segment_overlay_02.png', error=None)\ngrip offset [0.04187549 0.06299523] place xy [-0.16542451  0.27499523]\ncarry Move(target_xyz=(-0.19677449762821198, 0.09509523212909698, 1.1683542728424072), final_eef_pos=(-0.1973, 0.0843, 1.1679), final_dist_m=0.0109, reached=True, steps_used=56, max_steps=80, terminated=False, truncated=False)\ncarry Move(target_xyz=(-0.16542451083660126, 0.27499523758888245, 1.1683542728424072), final_eef_pos=(-0.1658, 0.265, 1.1679), final_dist_m=0.0101, reached=True, steps_used=60, max_steps=80, terminated=False, truncated=False)\n",
+    "images": 1,
+    "shown": [
+     "agentview"
+    ],
+    "calls": 5,
+    "primitives": [
+     "artifact",
+     "move_to",
+     "segment",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 6,
+     "agentview": "code-agentview-06.jpg",
+     "wrist": "code-wrist-06.jpg"
+    },
+    "cum": 125504
+   },
+   {
+    "k": 6,
+    "tool": "python",
+    "code": "held_at_plate = robo.segment(point=(314, 795))\nprint('bowl above plate', held_at_plate)\nassert held_at_plate.found\ncorrection = np.array(plate.world_xyz[:2]) - np.array(held_at_plate.world_xyz[:2])\nplace_xy = np.array(robo.state().eef_pos[:2]) + correction\nsurface_map = robo.world_map()\nbowl_patch = surface_map[290:365, 740:850]\nbowl_heights = bowl_patch[:,:,2]\nbowl_heights = bowl_heights[(bowl_heights>1.04) & (bowl_heights<1.17)]\nbottom_z = float(np.quantile(bowl_heights, 0.02))\nplacement_z = plate.world_xyz[2] + robo.state().eef_pos[2] - bottom_z + 0.007\nprint('correction', correction, 'bottom', bottom_z, 'placement z', placement_z)\nassert np.linalg.norm(correction)<0.07 and 0.95<placement_z<1.05\nlower = robo.move_to([*place_xy, placement_z], gripper=+1, step_clip=0.012, tol=0.005, max_steps=100)\nprint('lower', lower)\nif lower.reached and not robo.done:\n    print('release', robo.release())\nprint('done', robo.done)\nif not robo.done:\n    robo.show('agentview')",
+    "stdout": "bowl above plate Segment(found=True, world_xyz=(-0.1931, 0.218, 1.1406), score=0.805, box=None, camera='agentview', step=6, overlay_artifact='segment_overlay_00.png', error=None)\ncorrection [-0.0142 -0.006 ] bottom 1.1123046875 placement z 0.9723047868211058\nlower Move(target_xyz=(-0.18003399670124054, 0.25896257162094116, 0.9723047614097595), final_eef_pos=(-0.1801, 0.2588, 0.9764), final_dist_m=0.0041, reached=True, steps_used=64, max_steps=100, terminated=False, truncated=False)\nrelease Release(steps_used=1, start_gripper_opening=0.0047, peak_gripper_opening=0.0052, final_gripper_opening=0.0052, terminated=True, truncated=False)\ndone True\n",
+    "images": 0,
+    "shown": [],
+    "calls": 6,
+    "primitives": [
+     "artifact",
+     "move_to",
+     "release",
+     "segment",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 8,
+     "agentview": "code-agentview-08.jpg",
+     "wrist": "code-wrist-08.jpg"
+    },
+    "cum": 156372
+   },
+   {
+    "k": 7,
+    "tool": "finish",
+    "code": "finish(status='success')",
+    "stdout": "",
+    "images": 0,
+    "shown": [],
+    "view": {
+     "step": 8,
+     "agentview": "code-agentview-08.jpg",
+     "wrist": "code-wrist-08.jpg"
+    },
+    "cum": 188068
+   },
+   {
+    "k": 8,
+    "tool": "message",
+    "code": "",
+    "stdout": "",
+    "images": 0,
+    "view": {
+     "step": 8,
+     "agentview": "code-agentview-08.jpg",
+     "wrist": "code-wrist-08.jpg"
+    },
+    "cum": 219880
+   }
+  ],
+  "solved_at": 6,
+  "start": {
+   "step": 0,
+   "agentview": "code-agentview-00.jpg",
+   "wrist": "code-wrist-00.jpg"
+  }
+ }
+}

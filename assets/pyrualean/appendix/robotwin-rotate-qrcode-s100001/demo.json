@@ -1,0 +1,250 @@
+{
+ "task": "Lift the small glossy paymentsign with the left arm, then rotate it to make the qrcode visible.",
+ "cell": "demo_randomized task rotate_qrcode seed 100001",
+ "benchmark": "RoboTwin 2.0",
+ "robot": "robotwin",
+ "cameras": {
+  "main": "head",
+  "inset": "left_wrist",
+  "labels": {
+   "head": "Head camera",
+   "left_wrist": "Left wrist camera",
+   "right_wrist": "Right wrist camera"
+  }
+ },
+ "rpent": {
+  "requests": [
+   {
+    "k": 1,
+    "cum": 14631,
+    "calls": [
+     {
+      "tool": "read_text_file",
+      "args": "GUIDE_RPENT.md"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 0,
+     "head": "rpent-head-00.jpg",
+     "left_wrist": "rpent-left_wrist-00.jpg"
+    },
+    "note": "I’ll read the control guide, then inspect the initial scene."
+   },
+   {
+    "k": 2,
+    "cum": 31011,
+    "calls": [
+     {
+      "tool": "view_env_state",
+      "args": "step=0"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "head",
+     "left_wrist",
+     "right_wrist"
+    ],
+    "view": {
+     "step": 0,
+     "head": "rpent-head-00.jpg",
+     "left_wrist": "rpent-left_wrist-00.jpg"
+    },
+    "note": ""
+   },
+   {
+    "k": 3,
+    "cum": 50609,
+    "calls": [
+     {
+      "tool": "lingbot_act",
+      "args": "chunks=1, use_length=50"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "head",
+     "left_wrist",
+     "right_wrist"
+    ],
+    "view": {
+     "step": 1,
+     "head": "rpent-head-01.jpg",
+     "left_wrist": "rpent-left_wrist-01.jpg"
+    },
+    "note": "I’ll grasp and lift the payment sign with the left arm."
+   },
+   {
+    "k": 4,
+    "cum": 72771,
+    "calls": [
+     {
+      "tool": "lingbot_act",
+      "args": "chunks=1, use_length=50"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "head",
+     "left_wrist",
+     "right_wrist"
+    ],
+    "view": {
+     "step": 2,
+     "head": "rpent-head-02.jpg",
+     "left_wrist": "rpent-left_wrist-02.jpg"
+    },
+    "note": ""
+   },
+   {
+    "k": 5,
+    "cum": 97316,
+    "calls": [
+     {
+      "tool": "lingbot_act",
+      "args": "chunks=1, use_length=50"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "head",
+     "left_wrist",
+     "right_wrist"
+    ],
+    "view": {
+     "step": 3,
+     "head": "rpent-head-03.jpg",
+     "left_wrist": "rpent-left_wrist-03.jpg"
+    },
+    "note": "The sign is lifted; I’ll continue rotating while maintaining hold."
+   },
+   {
+    "k": 6,
+    "cum": 124271,
+    "calls": [
+     {
+      "tool": "finish",
+      "args": "success"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 3,
+     "head": "rpent-head-03.jpg",
+     "left_wrist": "rpent-left_wrist-03.jpg"
+    },
+    "note": ""
+   },
+   {
+    "k": 7,
+    "cum": 151445,
+    "calls": [],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 3,
+     "head": "rpent-head-03.jpg",
+     "left_wrist": "rpent-left_wrist-03.jpg"
+    },
+    "note": "Success: the left arm lifted the payment sign and rotated it to reveal the QR code. Native success confirmed after 145 actions; robot stopped."
+   }
+  ],
+  "solved_at": 5,
+  "start": {
+   "step": 0,
+   "head": "rpent-head-00.jpg",
+   "left_wrist": "rpent-left_wrist-00.jpg"
+  }
+ },
+ "cells": {
+  "requests": [
+   {
+    "k": 1,
+    "tool": "python",
+    "code": "print(robo.task)\nprint(robo.state())\nresult = robo.lingbot_act(chunks=2)\nprint(result)\nprint(robo.state())\nrobo.show('head')\nrobo.show('left_wrist')",
+    "stdout": "Lift the small glossy paymentsign with the left arm, then rotate it to make the qrcode visible.\nState(step=0, task='Lift the small glossy paymentsign with the left arm, then rotate it to make the qrcode visible.', left=ArmState(eef_pos=(-0.2979237139225006, -0.31380388140678406, 0.9419986009597778), eef_quat=(0.7000007075698662, -7.093281273444641e-06, -3.793835849252858e-06, 0.7141421492510989), tcp_pos=(-0.3003234757280238, -0.1938278794829461, 0.9419980225781791), tcp_quat=(0.7000007075698662, -7.093281273444641e-06, -3.793835849252858e-06, 0.7141421492510989), gripper=1.0), right=ArmState(eef_pos=(0.30643314123153687, -0.31279975175857544, 0.940998375415802), eef_quat=(0.7035625829175199, -7.077809104139021e-06, -3.793729455803252e-06, 0.7106333033667506), tcp_pos=(0.30523320942415433, -0.19280574546870868, 0.9409978088715331), tcp_quat=(0.7035625829175199, -7.077809104139021e-06, -3.793729455803252e-06, 0.7106333033667506), gripper=1.0), eval_success=False, take_action_cnt=0, step_lim=10000, terminated=False, truncated=False)\nVlaRun(chunks_requested=2, actions_requested=100, actions_used=100, stop_reason='completed', instruction='Lift the small glossy paymentsign with the left arm, then rotate it to make the qrcode visible.', terminated=False, truncated=False)\nState(step=1, task='Lift the small glossy paymentsign with the left arm, then rotate it to make the qrcode visible.', left=ArmState(eef_pos=(-0.21923775970935822, -0.09695179015398026, 1.0014424324035645), eef_quat=(0.41867571394406, -0.5586102777571491, 0.4666590649558985, 0.5430419148021618), tcp_pos=(-0.2222774098192842, -0.10494909298018112, 0.8817478026668162), tcp_quat=(0.41867571394406, -0.5586102777571491, 0.4666590649558985, 0.5430419148021618), gripper=0.0039054725784808397), right=ArmState(eef_pos=(0.3052789568901062, -0.31454402208328247, 0.941294252872467), eef_quat=(0.7018319785781002, -0.00397287192997702, -0.005985000526728457, 0.7123063034274459), tcp_pos=(0.3034990952265619, -0.194557673269411, 0.9416231880027044), tcp_quat=(0.7018319785781002, -0.00397287192997702, -0.005985000526728457, 0.7123063034274459), gripper=1.0), eval_success=False, take_action_cnt=100, step_lim=10000, terminated=False, truncated=False)\n",
+    "images": 2,
+    "shown": [
+     "head",
+     "left_wrist"
+    ],
+    "calls": 6,
+    "primitives": [
+     "artifact",
+     "lingbot_act",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 1,
+     "head": "code-head-01.jpg",
+     "left_wrist": "code-left_wrist-01.jpg"
+    },
+    "cum": 21114,
+    "note": "I’ll use the left arm to grasp, lift, and turn the payment sign."
+   },
+   {
+    "k": 2,
+    "tool": "python",
+    "code": "result = robo.lingbot_act(chunks=1)\nprint(result)\nprint(robo.state())\nif not robo.done:\n    robo.show('head')\n    robo.show('left_wrist')",
+    "stdout": "VlaRun(chunks_requested=1, actions_requested=50, actions_used=46, stop_reason='native_success', instruction='Lift the small glossy paymentsign with the left arm, then rotate it to make the qrcode visible.', terminated=True, truncated=False)\nState(step=2, task='Lift the small glossy paymentsign with the left arm, then rotate it to make the qrcode visible.', left=ArmState(eef_pos=(-0.24791263043880463, -0.10948260873556137, 0.9722469449043274), eef_quat=(0.1427528794250796, 0.7073860116396914, -0.08351716896936856, -0.6872055940107598), tcp_pos=(-0.24292702546893807, -0.14720567753779457, 0.8584395930082354), tcp_quat=(0.1427528794250796, 0.7073860116396914, -0.08351716896936856, -0.6872055940107598), gripper=0.8017544770240783), right=ArmState(eef_pos=(0.3038874566555023, -0.3174915909767151, 0.9411947727203369), eef_quat=(0.7030856803057932, -0.008828144197732514, 0.002468010711495383, 0.7110460596488045), tcp_pos=(0.3025452272722471, -0.19751449977646143, 0.9392717868678542), tcp_quat=(0.7030856803057932, -0.008828144197732514, 0.002468010711495383, 0.7110460596488045), gripper=0.995895504951477), eval_success=True, take_action_cnt=146, step_lim=10000, terminated=True, truncated=False)\n",
+    "images": 0,
+    "shown": [],
+    "calls": 2,
+    "primitives": [
+     "lingbot_act",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 2,
+     "head": "code-head-02.jpg",
+     "left_wrist": "code-left_wrist-02.jpg"
+    },
+    "cum": 43443,
+    "note": ""
+   },
+   {
+    "k": 3,
+    "tool": "finish",
+    "code": "finish(status='success')",
+    "stdout": "",
+    "images": 0,
+    "shown": [],
+    "calls": 0,
+    "primitives": [],
+    "view": {
+     "step": 2,
+     "head": "code-head-02.jpg",
+     "left_wrist": "code-left_wrist-02.jpg"
+    },
+    "cum": 66371,
+    "note": ""
+   },
+   {
+    "k": 4,
+    "tool": "message",
+    "code": "",
+    "stdout": "",
+    "images": 0,
+    "shown": [],
+    "calls": 0,
+    "primitives": [],
+    "view": {
+     "step": 2,
+     "head": "code-head-02.jpg",
+     "left_wrist": "code-left_wrist-02.jpg"
+    },
+    "cum": 89429,
+    "note": "Success: the left arm lifted and rotated the payment sign to reveal the QR code. The benchmark confirmed completion."
+   }
+  ],
+  "solved_at": 2,
+  "start": {
+   "step": 0,
+   "head": "code-head-00.jpg",
+   "left_wrist": "code-left_wrist-00.jpg"
+  }
+ }
+}

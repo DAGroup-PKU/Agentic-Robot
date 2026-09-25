@@ -1,0 +1,698 @@
+{
+ "task": "Pick the alphabet soup and place it in the basket",
+ "cell": "libero_object_swap task 0 seed 1",
+ "benchmark": "LIBERO-PRO",
+ "robot": "libero",
+ "cameras": {
+  "main": "agentview",
+  "inset": "wrist",
+  "labels": {
+   "agentview": "Front camera",
+   "wrist": "Wrist camera",
+   "agentview_policy": "Policy view (front camera, mirrored)"
+  }
+ },
+ "rpent": {
+  "requests": [
+   {
+    "k": 1,
+    "cum": 20070,
+    "calls": [
+     {
+      "tool": "read_text_file",
+      "args": "strict_hybrid_guide.md"
+     },
+     {
+      "tool": "read_text_file",
+      "args": "pro_hybrid_guide.md"
+     },
+     {
+      "tool": "read_text_file",
+      "args": "env_calibration.md"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 0,
+     "agentview": "rpent-agentview-00.jpg",
+     "wrist": "rpent-wrist-00.jpg"
+    },
+    "note": "I’ll read the three guides, then inspect the initial scene."
+   },
+   {
+    "k": 2,
+    "cum": 50064,
+    "calls": [
+     {
+      "tool": "view_env_state",
+      "args": "step=0"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 0,
+     "agentview": "rpent-agentview-00.jpg",
+     "wrist": "rpent-wrist-00.jpg"
+    },
+    "note": "I’ll now read the authoritative task and identify its targets."
+   },
+   {
+    "k": 3,
+    "cum": 83069,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "row 418, col 421"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 419, col 434"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 425, col 444"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 473, col 782"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 483, col 811"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 472, col 844"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 553, col 609"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 563, col 620"
+     },
+     {
+      "tool": "back_project",
+      "args": "row 558, col 634"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 0,
+     "agentview": "rpent-agentview-00.jpg",
+     "wrist": "rpent-wrist-00.jpg"
+    },
+    "note": "The task is “Pick the alphabet soup and place it in the basket.” I identify the blue rear can as alphabet soup and the white-lined woven container as the basket; I’ll localize both and the table surface."
+   },
+   {
+    "k": 4,
+    "cum": 117707,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.21, -0.08, 0.24]"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 1,
+     "agentview": "rpent-agentview-01.jpg",
+     "wrist": "rpent-wrist-01.jpg"
+    },
+    "note": "The soup anchor is approximately (−0.207, −0.078, 0.073); basket samples hit its lining. I’ll first refine the soup from above, without touching it."
+   },
+   {
+    "k": 5,
+    "cum": 155686,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "wrist: row 570, col 524"
+     },
+     {
+      "tool": "back_project",
+      "args": "wrist: row 585, col 542"
+     },
+     {
+      "tool": "back_project",
+      "args": "wrist: row 602, col 553"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 1,
+     "agentview": "rpent-agentview-01.jpg",
+     "wrist": "rpent-wrist-01.jpg"
+    },
+    "note": "The wrist view shows the same soup can beneath the gripper. I’ll sample its lid to check agreement with the agentview anchor."
+   },
+   {
+    "k": 6,
+    "cum": 194237,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.13, 0.10, 0.28]"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 2,
+     "agentview": "rpent-agentview-02.jpg",
+     "wrist": "rpent-wrist-02.jpg"
+    },
+    "note": "The soup refinement agrees within 1.1 cm. I’ll inspect the basket next, splitting the sideways move into safe waypoints."
+   },
+   {
+    "k": 7,
+    "cum": 236083,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "wrist: row 420, col 510"
+     },
+     {
+      "tool": "back_project",
+      "args": "wrist: row 435, col 525"
+     },
+     {
+      "tool": "back_project",
+      "args": "wrist: row 445, col 535"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 2,
+     "agentview": "rpent-agentview-02.jpg",
+     "wrist": "rpent-wrist-02.jpg"
+    },
+    "note": "The waypoint is clear, and no objects moved. I’ll check the table height here before centering over the basket."
+   },
+   {
+    "k": 8,
+    "cum": 278537,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.06, 0.27, 0.28]"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 3,
+     "agentview": "rpent-agentview-03.jpg",
+     "wrist": "rpent-wrist-03.jpg"
+    },
+    "note": "The wrist confirms the table is at z≈0. I’ll move above the basket to locate its interior center rather than its rim."
+   },
+   {
+    "k": 9,
+    "cum": 324232,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "wrist: row 475, col 490"
+     },
+     {
+      "tool": "back_project",
+      "args": "wrist: row 495, col 531"
+     },
+     {
+      "tool": "back_project",
+      "args": "wrist: row 520, col 567"
+     },
+     {
+      "tool": "back_project",
+      "args": "wrist: region"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 3,
+     "agentview": "rpent-agentview-03.jpg",
+     "wrist": "rpent-wrist-03.jpg"
+    },
+    "note": "The basket’s empty floor is visible in the wrist image. I’ll use an interior region and depth filtering to exclude the raised walls."
+   },
+   {
+    "k": 10,
+    "cum": 370749,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.13, 0.10, 0.28]"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 4,
+     "agentview": "rpent-agentview-04.jpg",
+     "wrist": "rpent-wrist-04.jpg"
+    },
+    "note": "Localization is complete: soup (−0.199, −0.085, 0.072), basket interior (−0.009, 0.255, 0.016), table z≈0. The wrist refinements are consistent; I’ll return to the soup via a safe waypoint, then use Pi0 only for the grasp."
+   },
+   {
+    "k": 11,
+    "cum": 421138,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.20, -0.09, 0.22]"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 5,
+     "agentview": "rpent-agentview-05.jpg",
+     "wrist": "rpent-wrist-05.jpg"
+    },
+    "note": "The scene remains unchanged. I’ll position directly above the blue soup can for the grasp."
+   },
+   {
+    "k": 12,
+    "cum": 474755,
+    "calls": [
+     {
+      "tool": "pi0_pick",
+      "args": "\"pick up the alphabet soup\""
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 6,
+     "agentview": "rpent-agentview-06.jpg",
+     "wrist": "rpent-wrist-06.jpg"
+    },
+    "note": "The target remains centered beneath the open gripper. I’ll ask Pi0 to pick up only the alphabet soup."
+   },
+   {
+    "k": 13,
+    "cum": 531703,
+    "calls": [
+     {
+      "tool": "set_gripper",
+      "args": "1"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 7,
+     "agentview": "rpent-agentview-07.jpg",
+     "wrist": "rpent-wrist-07.jpg"
+    },
+    "note": "The blue soup can is visibly raised, its original spot is empty, and the fingers are not fully closed. I’ll firm the grip before lifting to carry height."
+   },
+   {
+    "k": 14,
+    "cum": 591886,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.22, -0.06, 0.30]"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 8,
+     "agentview": "rpent-agentview-08.jpg",
+     "wrist": "rpent-wrist-08.jpg"
+    },
+    "note": "The grip is stable and the can remains upright. I’ll lift vertically to z=0.30 before crossing the table."
+   },
+   {
+    "k": 15,
+    "cum": 655302,
+    "calls": [
+     {
+      "tool": "back_project",
+      "args": "wrist: row 780, col 520"
+     },
+     {
+      "tool": "back_project",
+      "args": "wrist: row 805, col 550"
+     },
+     {
+      "tool": "back_project",
+      "args": "wrist: row 825, col 570"
+     },
+     {
+      "tool": "list_dir",
+      "args": "episode directory"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 8,
+     "agentview": "rpent-agentview-08.jpg",
+     "wrist": "rpent-wrist-08.jpg"
+    },
+    "note": "The can cleared the nearby groceries without slipping. I’ll check its held height and locate the run’s artifact folder before carrying it to the basket."
+   },
+   {
+    "k": 16,
+    "cum": 719771,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.12, 0.10, 0.30]"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 9,
+     "agentview": "rpent-agentview-09.jpg",
+     "wrist": "rpent-wrist-09.jpg"
+    },
+    "note": "The lid is at z≈0.322, confirming a secure lift. I’ll carry through a midpoint at z=0.30, keeping the can above all obstacles."
+   },
+   {
+    "k": 17,
+    "cum": 787768,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.02, 0.26, 0.30]"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 10,
+     "agentview": "rpent-agentview-10.jpg",
+     "wrist": "rpent-wrist-10.jpg"
+    },
+    "note": "The can remains secure at the midpoint. I’ll align it over the basket’s measured interior, allowing for the small grasp offset."
+   },
+   {
+    "k": 18,
+    "cum": 859000,
+    "calls": [
+     {
+      "tool": "move_to",
+      "args": "[-0.02, 0.26, 0.11]"
+     }
+    ],
+    "images": 3,
+    "returned": [
+     "agentview_policy",
+     "agentview",
+     "wrist"
+    ],
+    "view": {
+     "step": 11,
+     "agentview": "rpent-agentview-11.jpg",
+     "wrist": "rpent-wrist-11.jpg"
+    },
+    "note": "The can is aligned over the white-lined basket, which has not moved. I’ll lower vertically to z=0.11, placing the can’s base inside the cavity before release."
+   },
+   {
+    "k": 19,
+    "cum": 933511,
+    "calls": [
+     {
+      "tool": "write_text_file",
+      "args": "recipe.jsonl"
+     },
+     {
+      "tool": "write_text_file",
+      "args": "audit.json"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 11,
+     "agentview": "rpent-agentview-11.jpg",
+     "wrist": "rpent-wrist-11.jpg"
+    },
+    "note": "The runtime reports `terminated: true` as the can enters the basket. I’ll save the execution record and audit, then finish without further motion."
+   },
+   {
+    "k": 20,
+    "cum": 1010435,
+    "calls": [
+     {
+      "tool": "finish",
+      "args": "success"
+     }
+    ],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 11,
+     "agentview": "rpent-agentview-11.jpg",
+     "wrist": "rpent-wrist-11.jpg"
+    },
+    "note": "The audit is saved. I’m finishing the successful single episode."
+   },
+   {
+    "k": 21,
+    "cum": 1087571,
+    "calls": [],
+    "images": 0,
+    "returned": [],
+    "view": {
+     "step": 11,
+     "agentview": "rpent-agentview-11.jpg",
+     "wrist": "rpent-wrist-11.jpg"
+    },
+    "note": ""
+   }
+  ],
+  "solved_at": 18,
+  "start": {
+   "step": 0,
+   "agentview": "rpent-agentview-00.jpg",
+   "wrist": "rpent-wrist-00.jpg"
+  }
+ },
+ "cells": {
+  "requests": [
+   {
+    "k": 1,
+    "tool": "python",
+    "code": "print(robo.state())\nprint(open('guides/pro_hybrid_guide.md').read())\nprint('soup', robo.segment(point=(461,433)))\nprint('basket', robo.region_center((430,500),(737,882))))\nprint('table',robo.back_project(750,650))",
+    "stdout": "",
+    "exception": "SyntaxError: unmatched ')' (<cell 1>, line 4)",
+    "images": 0,
+    "shown": [],
+    "calls": 0,
+    "primitives": [],
+    "view": {
+     "step": 0,
+     "agentview": "code-agentview-00.jpg",
+     "wrist": "code-wrist-00.jpg"
+    },
+    "cum": 21932,
+    "note": "I’ll locate the soup can, grasp it, and place it in the basket."
+   },
+   {
+    "k": 2,
+    "tool": "python",
+    "code": "print(robo.state())\nprint(open('guides/pro_hybrid_guide.md').read())\nsoup = robo.segment(point=(461,433))\nprint('soup', soup)\nprint('basket', robo.region_center((430,500),(737,882)))\nprint('table',robo.back_project(750,650))",
+    "stdout": "State(step=0, task='Pick the alphabet soup and place it in the basket', eef_pos=(-0.14846466056582383, 2.2408594311645973e-12, 0.26127947572964), eef_quat=(0.9995966048795353, 0.0002462128336664371, -0.028400120485873002, -6.995296226526906e-06), gripper_qpos=(0.03903962231833495, -0.03903956200474287), gripper_opening=0.07807918432307782, object_names=('alphabet_soup_1', 'basket_1', 'butter_1', 'cream_cheese_1', 'milk_1', 'salad_dressing_1', 'tomato_sauce_1'), terminated=False, truncated=False)\n# LIBERO-Pro Hybrid (Pi0.5 + LLM-in-the-loop) — Perception-Isolated Guide\n\nYou are picking up the **LIBERO-Pro** evaluation track in **perception-isolated**\nmode — the only mode in this repository (the legacy oracle-state mode is not\nincluded here).\n\n> **Pi0.5 only does the grasp (`pi0_pick`). The LLM (you) handles every motion\n> (`move_to`), every release, sequencing, retries — and you do not get GT object\n> coordinates. You localize objects yourself from the depth + camera calibration\n> the runtime dumps each step.**\n\nThis document layers on the base playbook. Read it first:\n\n- [`strict_hybrid_guide.md`](./strict_hybrid_guide.md) — the perception protocol:\n  back-projection localization, the perception artifacts\n  (`agentview_high.png`, `agentview_world_high.npz`, and\n  `agentview_metadata.json`),\n  the primitive vocabulary and the Rules (0/1/2/4/5). **This is the source of\n  truth for *how you localize*.**\n- **This file** — the LIBERO-Pro perturbation axes, the frame split, and how\n  perception isolation changes the P2-swap story.\n\n> Your task comes from the initial `view_env_state` result's `task_language`;\n> the BDDL is FORBIDDEN.\n> Read the authoritative instruction (the BDDL `:language` tag, coord-free) that\n> the runtime injects and obey it verbatim. Do **not** scrape the BDDL or import\n> the benchmark: that is error-prone (wrong task-map index → wrong task) and a\n> perception-isolation breach (the `:init` block holds the GT coordinates this\n> mode withholds). For swap fixtures, localize them **visually** (§3.5), never\n> from `:init`. You never hand-roll projection math — `back_project` applies\n> `K⁻¹` + the cam→world extrinsic and returns the surface `world_xyz` under a\n> pixel; just use it.\n\nWhenever this guide says \"see the perception protocol\" or \"the localization\nsnippet\", it means `strict_hybrid_guide.md`. **Every rule there applies here**;\nthis guide only *adds* PRO constraints and tooling. Runner contract: call the\nstructured MCP tools (the runner owns the env server — do not start/stop it, and\nissue no file-based commands); it is a single-episode run — no `reset`/`exit`,\nrecover in place or call `finish` with an honest failure.\n\n## 0. What's different from oracle PRO mode (read this first)\n\n| | oracle mode (not in this repo) | **perception (this guide)** |\n|---|---|---|\n| how launched | oracle-state run | `rpent/cli/main.py --libero-type pro` (or `LIBERO_TYPE=pro`); perception artifacts always dumped, coords withheld |\n| returned `state` objects | full `objects:{name:[x,y,z]}` | **`object_names:[…]` only — NO coords** |\n| how you learn the task | env prompt / scrape BDDL | **initial `task_language` returned by `view_env_state`** (authoritative `:language`, coord-free) — never read the BDDL |\n| extra obs artifacts | agentview RGB only | **logical agentview/wrist image, depth, world-map, and metadata keys, including `agentview_high.png` and `wrist_high.png`** — geometry consumed through `back_project` |\n| cameras | agentview only | **agentview (fixed, ~1m → ±8-13cm) + eye-in-hand wrist (moves with gripper, ±1-2cm when <20cm to target)** — see §3.6 |\n| how P2 swap is solved | read swapped coords from oracle state | **localize the swapped objects by `back_project`** |\n| how a swapped *fixture* site is found | read the swap BDDL `:init` block | **localize the fixture visually** (see §3.5) |\n| run budget | short | **larger** — perception localization + manipulation is slower (raise `--max-turns` / `--planner-timeout-s`) |\n| \n... [7301 chars omitted] ...\ncides *which* object/surface satisfies the task\nlanguage + relation); `wrist.png` / `wrist_high.png` refines geometry for the *same* candidate\n(accept only within ~3–5 cm of the agentview anchor, never average, basket/cavity\nexcepted). Both maps share one world frame, read via\n`back_project({\"camera\":\"wrist\"})`; the optional `segment` honours both cameras\n(`{\"camera\":\"agentview\"|\"wrist\"}`, `min_score` default 0.2, or `point:[row,col]`).\n\n**PRO implication:** `_swap` (and `_task`) can *invert* target or destination\nsemantics, so **never reuse base-task coordinates** — the object\nsatisfying the relation may now sit where the base task never put it. Let\nagentview decide *what*; the near-vertical wrist is BAD at identity (locks onto\nlook-alikes) and only refines *where*.\n\n### 3.6c. Mandatory pre-task perception pass\n\nAlso owned by the strict guide's First-step perception protocol: before ANY\npick/place, build the localization table (one row per task-relevant entity) and\npass the FINAL READY CHECK. **PRO implication:** in single-attempt mode a\nwrong-target first grab is unrecoverable, and under `_swap` the \"right\" target is\nexactly the one you'd get wrong by habit — so localizing all entities up front is\ncheap insurance, not optional.\n\n### 3.6b. Hi-res perception channel (1024×1024)\n\nAlso owned by the strict guide's Hi-res perception channel section (1024×1024\npairs each step; prefer the hi image for identification; `back_project` defaults\n`resolution=\"high\"`; never mix pixel grids). **PRO implication:** hi-res fixes\n*which* object you point at — decisive for the recolored/rescaled Object axis and\nfor telling swapped same-shape groceries apart — but does NOT change metric\naccuracy or replace the wrist coarse→fine refinement. **Identity caveat:** SAM3\ngives two same-shaped, different-brand objects the SAME category (it labelled the\ntomato-sauce and alphabet-soup cans identically) — use its mask only as a category\ncandidate, then READ the label yourself in the hi-res crop to assign identity;\nnever let SAM3's category settle a brand choice.\n\n## 5. Perception-protocol rules — PRO clarifications\n\n- **Rule 0 (use images for reasoning).** Even more critical under PRO: P2 swap can\n  move a large object/fixture clear across the table, and you have *no*\n  coordinates to fall back on. `agentview_high.png` plus `back_project` are your\n  spatial truth — inspect the embedded image and describe the scene before deciding\n  targets.\n- **Rule 1 (no `pi0_end_to_end`).** Pi0 does the grasp via `pi0_pick`; the LLM\n  scripts every motion + release. Under PRO this is doubly important — handing\n  back to Pi0 means handing back to the prompt-blind / memorized-place habit you\n  are trying to falsify.\n- **Rule 2 (single-episode current run).** This is a one-shot eval: do not call\n  `reset` or `exit`. Recover *within* the episode when safe (re-localize,\n  re-pre-position, re-`pi0_pick`, walk the prompt ladder,\n  `rotate_pitch`/`move_pose`); otherwise call `finish` with an honest\n  stuck/failure status. `_swap` typically needs an in-episode retry.\n- **Rule 4 (no teleport).** `set_object_pose`, `articulate_to`, `js_move_to`,\n  `carry_object` are deleted. A goal past OSC reach with no physical approach →\n  honest `terminated:false`.\n- **Rule 5 (assume solvable).** A localization that moves the gripper into thin\n  air means you picked a wrong pixel (a reflection, a rim, a decoy object under\n  the Object perturbation), not that the cell is unreachable. Re-look, re-pick,\n  re-`back_project` before concluding failure.\n\nsoup Segment(found=True, world_xyz=(-0.1697, -0.0771, 0.0532), score=0.676, box=None, camera='agentview', step=0, overlay_artifact='segment_overlay_00.png', error=None)\nbasket RegionCenter(center_xyz=(-0.0448, 0.2625, 0.1041), median_xyz=(-0.0611, 0.2644, 0.1041), n_valid=10150, camera='agentview', step=0)\ntable BackProjection(world_xyz=(0.1958, 0.1047, 0.0006), pixel=(750, 650), camera='agentview', resolution='high', step=0, image_size=(1024, 1024))\n",
+    "images": 0,
+    "shown": [],
+    "calls": 4,
+    "primitives": [
+     "back_project",
+     "segment",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 0,
+     "agentview": "code-agentview-00.jpg",
+     "wrist": "code-wrist-00.jpg"
+    },
+    "cum": 44031,
+    "note": ""
+   },
+   {
+    "k": 3,
+    "tool": "python",
+    "code": "guide = open('guides/strict_hybrid_guide.md').read()\nprint(guide[:24000])\nprint('soup top samples', [robo.back_project(row,col).world_xyz for row,col in [(416,422),(420,438),(425,420)]])\nprint('basket interior',robo.region_center((450,505),(745,882),z_min=0.005,z_max=0.075))\nprint('soup prepose',robo.move_to([soup.world_xyz[0],soup.world_xyz[1],0.26],gripper=-1,step_clip=0.02))",
+    "stdout": "# Strict Hybrid LLM + Pi0.5 — Perception-Isolated Guide\n\nYou are taking over a hybrid LIBERO experiment in **perception-isolated** mode\n— the only mode in this repository (the legacy oracle-state mode, where the\nstate JSON carried GT object coordinates, is not included here).\n\n> **Pi0.5 only does the grasp (`pi0_pick`). The LLM (you) handles every motion\n> (`move_to`), every release, sequencing, retries — and you do not get GT\n> object coordinates. You localize objects yourself from the depth + camera\n> calibration the toolkit dumps each step.**\n\n## What's different from legacy oracle mode (read this first)\n\n| | legacy oracle mode (not in this repo) | **perception (this guide)** |\n|---|---|---|\n| how object coords are withheld | (none — full GT coords in `state`) | **the returned `state` carries `object_names` only, no coordinates** |\n| returned `state` objects | full `objects:{name:[x,y,z]}` | **`object_names:[…]` only — NO coords** |\n| how you learn the task | env prompt / BDDL | **top-level `task_language` returned by `view_env_state`** (authoritative `:language`, coord-free) — never scrape the BDDL |\n| extra obs artifacts | policy image only | **logical agentview/wrist image, depth, world-map, and metadata keys, including `agentview_high.png` and `wrist_high.png`** |\n| cameras | agentview only | **agentview (fixed, ~1m → ±8–13 cm) + eye-in-hand wrist (moves with gripper, ±1–2 cm when <20 cm to target)** — coarse→fine, see below |\n| how you get an object's xyz | read `state[\"objects\"][name]` | **pick the object pixel, then `back_project({\"row\":ROW,\"col\":COL,\"step\":NN})` (K⁻¹+extrinsic already done); refine with the wrist map up close** |\n| how you confirm the grasp | GT object-lift oracle | **grasp-only, no oracle — you judge the grasp from gripper width + wrist cam (Rule 1 / 1b)** |\n| how you pick which of two identical objects | read their distinct coords | **by SPATIAL RELATION from `task_language` (elevation / left-right), never by `_1`/`_2` name** |\n| cell budget | 600 (short suites) | **1200** — perceptual localization + manipulation is slower |\n\nHow localization works (the core of this mode):\n\nThe toolkit already back-projects EVERY pixel for you through\n`agentview_world.npz` / `agentview_world_high.npz` or\n`wrist_world.npz` / `wrist_world_high.npz` — all in the SAME world frame.\nThese are logical artifact names scoped by step, not paths to construct.\n**You do NOT write back-projection math; you pick a pixel and call\n`back_project`, which selects the matching map for you.**\n\n1. Inspect `agentview_high.png` — agentview RGB **in the calibration frame**\n   (vertical-flip of the raw buffer). This is the image you pick pixels in.\n  `agentview_policy.png` is the Pi0 frame; **do not pick pixels there**.\n2. Find the target object visually → pixel `(row, col)`.\n3. Read its world xyz directly: `back_project({\"row\":ROW,\"col\":COL,\"step\":NN})`.\n   Sample 3–5 pixels on the object's top surface and median the returned xy\n   (robust to one mis-picked rim/edge pixel). That's the object's surface point\n   in world frame.\n\n### Hi-res perception channel (ON BY DEFAULT, 1024×1024)\n\nThe toolkit records, every step, a 1024×1024 pair per camera IN ADDITION to the\n256 artifacts: `agentview_high.png` + `agentview_world_high.npz` and\n`wrist_high.png` + `wrist_world_high.npz`.\n**PREFER the hi pair for looking and identification** — a far object spans 4×\nmore pixels, and package text/label art is actually legible (e.g. \"Cream\nCheese\" vs \"BUTTER\" boxes are readable at 1024 and indistinguishable smears\nat 256). If the hi files are absent, everything below works unchanged at 256.\n\n- A hi-res pixel `(row,col)` indexes ONLY the hi-res world map (`back_project`\n  default `resolution:\"high\"`; float16, same world frame). Never index a 1024\n  pixel into the 256 map or vice versa — pass `resolution:\"low\"` only for a\n  pixel taken from a 256 image (convert by dividing/multiplying by 4 if needed).\n- The `segment` command automatically uses the hi-res frame \n... [16483 chars omitted] ...\nmove the eef over the target first). Pass\n// \"point\":[row,col] for a point prompt instead of text; prompt and point are\n// mutually exclusive. min_score default 0.2.\n// RPent manages the SAM3 service. If one call fails or finds nothing, the result is\n// an {\"error\":...,\"fallback\":...} dict — fall back to picking a pixel in\n// agentview_high.png and calling back_project.\nsegment({\"prompt\": \"the black bowl on the stove\", \"camera\": \"agentview\",\n         \"point\": null, \"min_score\": 0.2})\n\n// === FORBIDDEN — DELETED FROM THE CODE — DO NOT EMIT ============\n//   set_object_pose, articulate_to, js_move_to, carry_object\n```\n\n### How to use `segment` (SAM3) — practical tips\n\n`segment` is the fastest way to localize: one call gives you a `world_xyz`\nthat is a robust MEDIAN over the whole object mask (hundreds of pixels), which\nbeats eyeballing 3–5 pixels. Workflow:\n\n1. Inspect `agentview_high.png`, decide the target by the task's spatial RELATION.\n2. Call `segment` with a **plain visual phrase + the relation**, then read the\n  returned `world_xyz` and embedded overlay image to confirm the mask\n   is on the right object before you move.\n3. **Two camera views — YOUR choice via the `\"camera\"` field** (`segment` works\n   on either; default `\"agentview\"`):\n   - `\"camera\":\"agentview\"` — the fixed ~1 m cam (±8–13 cm). Use it to choose\n     WHICH object (global layout / spatial relation) and get a rough xy.\n   - `\"camera\":\"wrist\"` — the eye-in-hand cam (±1–2 cm), reads the wrist world\n     map in the SAME world frame. Use it to PRECISELY localize once the gripper\n     is parked over the target. ⚠ It is null / all-table until you `move_to`\n     ~15–20 cm over the target (the wrist only sees the gripper+table before\n     that), so segment agentview first, approach, THEN segment wrist.\n   Typical coarse→fine: agentview select → `move_to` above → wrist refine → grasp.\n   You decide when the wrist refinement is worth it (small / closely-spaced /\n   identical objects benefit most; a big isolated plate may not need it).\n\n**Prompt phrasing (important — SAM3 is sensitive):**\n- ✅ Use plain colour + shape + spatial relation: `\"the black bowl on the stove\"`,\n  `\"the white plate\"`, `\"the bowl on the cookies box\"`.\n- ❌ Do NOT use the object's internal/brand NAME from `object_names`/BDDL:\n  `\"the akita black bowl\"` scores ~0.03 (no detection) because SAM3 can't ground\n  \"akita\"; the same object as `\"the black bowl on the stove\"` scores ~0.76. Strip\n  proper nouns (`akita`, `glazed_rim_porcelain_…`) — say what it *looks like*.\n- For two identical objects, the relation in the prompt (`…on the stove`,\n  `…left of the plate`) usually steers SAM3 to the right instance; verify via the\n  overlay and the world-z (an object *on* a fixture has a higher z than a\n  table-level twin). The two-camera relation protocol still applies when SAM3\n  can't disambiguate from text alone.\n- If `segment` returns `{\"error\":...}` (low score / service down), walk the\n  prompt (drop the brand word, simplify, add the relation) or fall back to\n  manual pixel → `back_project`.\n\n## The strict-hybrid recipe (perception variant)\n\nA typical bowl→plate cell looks like:\n\n1. `view_env_state({\"step\": 0})`; inspect `task_language`,\n   `agentview_high.png`, and call `view_camera_meta` if needed.\n2. Identify the target by the task's spatial RELATION, not its name (Rule 7).\n3. Localize it — pick its pixel in `agentview_high.png`,\n   `back_project({\"row\":ROW,\"col\":COL,\"step\":0})` (coarse). Refine with the\n   wrist cam after pre-p\nsoup top samples [(-0.213, -0.0908, 0.0729), (-0.2053, -0.0743, 0.0723), (-0.1943, -0.0917, 0.0725)]\nbasket interior RegionCenter(center_xyz=(-0.0565, 0.2664, 0.0707), median_xyz=(-0.0562, 0.2732, 0.0707), n_valid=1076, camera='agentview', step=0)\nsoup prepose Move(target_xyz=(-0.1696999967098236, -0.0771000012755394, 0.25999999046325684), final_eef_pos=(-0.1713, -0.0675, 0.259), final_dist_m=0.0098, reached=True, steps_used=15, max_steps=80, terminated=False, truncated=False)\n",
+    "images": 0,
+    "shown": [],
+    "calls": 5,
+    "primitives": [
+     "back_project",
+     "move_to"
+    ],
+    "view": {
+     "step": 1,
+     "agentview": "code-agentview-01.jpg",
+     "wrist": "code-wrist-01.jpg"
+    },
+    "cum": 68545,
+    "note": ""
+   },
+   {
+    "k": 4,
+    "tool": "python",
+    "code": "print(robo.pi0_pick('pick up the alphabet soup',max_chunks=20,lift_thresh=0.05))\nprint(robo.state())\nrobo.show('agentview')\nrobo.show('wrist')",
+    "stdout": "Pick(success=False, chunks_used=20, max_chunks=20, peak_lift_m=0.18490049988031387, min_gripper_opening=0.06301829218864441, final_gripper_opening=0.06301829218864441, terminated=False, truncated=False, diagnostics={'start_eef_z': 0.259, 'peak_eef_z': 0.259, 'min_eef_z': 0.0432, 'post_min_peak_z': 0.2281, 'descent_m': 0.2157, 'post_min_ascent_m': 0.1849, 'descent_done': True, 'lift_thresh': 0.05, 'gripper_closed_thresh': 0.06, 'gripper_open_thresh': 0.0, 'descent_thresh': 0.1})\nState(step=2, task='Pick the alphabet soup and place it in the basket', eef_pos=(-0.027656051432847807, 0.2519168663816069, 0.18055935373301013), eef_quat=(0.9987805763788113, 0.039834924466261135, 0.027449067733629262, 0.009853310191497825), gripper_qpos=(0.035401809302961024, -0.02761648553962712), gripper_opening=0.06301829484258814, object_names=('alphabet_soup_1', 'basket_1', 'butter_1', 'cream_cheese_1', 'milk_1', 'salad_dressing_1', 'tomato_sauce_1'), terminated=False, truncated=False)\n",
+    "images": 2,
+    "shown": [
+     "agentview",
+     "wrist"
+    ],
+    "calls": 4,
+    "primitives": [
+     "artifact",
+     "pi0_pick",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 2,
+     "agentview": "code-agentview-02.jpg",
+     "wrist": "code-wrist-02.jpg"
+    },
+    "cum": 95658,
+    "note": ""
+   },
+   {
+    "k": 5,
+    "tool": "python",
+    "code": "print(robo.set_gripper(+1,steps=5))\nbasket = robo.region_center((413,551),(700,940),z_min=0.10,z_max=0.14,step=0)\nprint('basket rim center',basket)\nprint('wrist floor',robo.back_project(571,479,camera='wrist'))\nprint('can',robo.segment(point=(421,810)))\nprint(robo.state())",
+    "stdout": "Gripper(gripper=1.0, steps=5, terminated=False, truncated=False)\nbasket rim center RegionCenter(center_xyz=(-0.0015, 0.2521, 0.1247), median_xyz=(0.0048, 0.2532, 0.1247), n_valid=19267, camera='agentview', step=0)\nwrist floor BackProjection(world_xyz=(0.0083, 0.2651, 0.0091), pixel=(571, 479), camera='wrist', resolution='high', step=3, image_size=(1024, 1024))\ncan Segment(found=True, world_xyz=(-0.0135, 0.2433, 0.1783), score=0.895, box=None, camera='agentview', step=3, overlay_artifact='segment_overlay_00.png', error=None)\nState(step=3, task='Pick the alphabet soup and place it in the basket', eef_pos=(-0.024923407174508194, 0.2539021380501072, 0.18201309722986211), eef_quat=(0.9988154403847878, 0.04051559670301891, 0.023616578427310724, 0.012979202445712722), gripper_qpos=(0.035333182307706865, -0.027599923005298493), gripper_opening=0.06293310531300536, object_names=('alphabet_soup_1', 'basket_1', 'butter_1', 'cream_cheese_1', 'milk_1', 'salad_dressing_1', 'tomato_sauce_1'), terminated=False, truncated=False)\n",
+    "images": 0,
+    "shown": [],
+    "calls": 5,
+    "primitives": [
+     "back_project",
+     "segment",
+     "set_gripper",
+     "view_env_state"
+    ],
+    "view": {
+     "step": 3,
+     "agentview": "code-agentview-03.jpg",
+     "wrist": "code-wrist-03.jpg"
+    },
+    "cum": 125749,
+    "note": "The soup is held securely above the basket."
+   },
+   {
+    "k": 6,
+    "tool": "python",
+    "code": "align = robo.move_to([basket.center_xyz[0]-0.01,basket.center_xyz[1],0.18],gripper=+1,step_clip=0.015,tol=0.006)\nprint('align',align)\nif align.reached and not robo.done:\n    lower = robo.move_to([basket.center_xyz[0]-0.01,basket.center_xyz[1],0.14],gripper=+1,step_clip=0.012,tol=0.006)\n    print('lower',lower)\n    if lower.reached and not robo.done:\n        print('release',robo.release(max_steps=20))\nprint('done',robo.done)",
+    "stdout": "align Move(target_xyz=(-0.011500000022351742, 0.25209999084472656, 0.18000000715255737), final_eef_pos=(-0.0167, 0.2525, 0.1797), final_dist_m=0.0052, reached=True, steps_used=5, max_steps=80, terminated=False, truncated=False)\nlower Move(target_xyz=(-0.011500000022351742, 0.25209999084472656, 0.14000000059604645), final_eef_pos=(-0.0109, 0.2522, 0.1458), final_dist_m=0.0059, reached=True, steps_used=12, max_steps=80, terminated=True, truncated=False)\ndone True\n",
+    "images": 0,
+    "shown": [],
+    "calls": 2,
+    "primitives": [
+     "move_to"
+    ],
+    "view": {
+     "step": 5,
+     "agentview": "code-agentview-05.jpg",
+     "wrist": "code-wrist-05.jpg"
+    },
+    "cum": 156626,
+    "note": ""
+   },
+   {
+    "k": 7,
+    "tool": "finish",
+    "code": "finish(status='success')",
+    "stdout": "",
+    "images": 0,
+    "shown": [],
+    "calls": 0,
+    "primitives": [],
+    "view": {
+     "step": 5,
+     "agentview": "code-agentview-05.jpg",
+     "wrist": "code-wrist-05.jpg"
+    },
+    "cum": 187989,
+    "note": ""
+   },
+   {
+    "k": 8,
+    "tool": "message",
+    "code": "",
+    "stdout": "",
+    "images": 0,
+    "shown": [],
+    "calls": 0,
+    "primitives": [],
+    "view": {
+     "step": 5,
+     "agentview": "code-agentview-05.jpg",
+     "wrist": "code-wrist-05.jpg"
+    },
+    "cum": 219468,
+    "note": "Successfully placed the alphabet soup in the basket."
+   }
+  ],
+  "solved_at": 6,
+  "start": {
+   "step": 0,
+   "agentview": "code-agentview-00.jpg",
+   "wrist": "code-wrist-00.jpg"
+  }
+ }
+}

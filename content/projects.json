@@ -90,5 +90,50 @@
       }
     ],
     "home_title": "Real-world experiments"
+  },
+  {
+    "slug": "pyrualean",
+    "name": "Code actions for robot agents",
+    "short_name": "PyRUA-Lean",
+    "environment": "Simulation",
+    "number": "03",
+    "description": "Does an agent that writes its robot actions as Python keep the success of tool calling at a fraction of the cost? A controlled comparison on LIBERO-PRO, RoboTwin 2.0 and RoboCasa365.",
+    "image": "pyrualean/cover-tokens.svg",
+    "image_alt": "Chart: LLM calls against token consumption of a solved episode on four benchmarks, each with an arrow from tool calling (blue) to PyRUA-Lean (orange).",
+    "mode": "Zero-shot · same model, primitives, services and judge · 40 LLM calls per episode, 100 on composite tasks",
+    "metrics": [
+      {
+        "value": "3",
+        "label": "benchmarks"
+      },
+      {
+        "value": "140",
+        "label": "tasks"
+      },
+      {
+        "value": "2",
+        "label": "action formats"
+      }
+    ],
+    "results_path": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+    "summary": "Two agents drive the same simulated robots through the same primitives and frozen VLA and perception services: RPent's tool-calling agent, and PyRUA-Lean, which gives the model a single python tool over the same primitive library. Only the action format differs; success is the benchmark's own predicate.",
+    "findings": [
+      "PyRUA-Lean reaches a higher success rate than tool calling on every benchmark and solves 12% more task instances overall (71.0% against 63.1%).",
+      "On tasks both agents solve, tool calling consumes 4.5× the tokens of PyRUA-Lean on LIBERO-PRO, 1.7× on RoboTwin 2.0, 1.5× on RoboCasa365 and 2.0× on its composite tasks; at GPT-6 Astra list prices, 3.1×, 1.5×, 1.2× and 1.6×.",
+      "Tool calling stays the more expensive agent after removing the VLA policy, the shared guides or both from both agents. At list prices the saving all but vanishes where one VLA call does most of the work."
+    ],
+    "limits": "Simulation only and zero-shot only: both agents run without memory. One tool-calling framework and one planner model, GPT-6 Astra.",
+    "evidence": [
+      {
+        "label": "PyRUA-Lean code",
+        "path": "https://github.com/DAGroup-PKU/PyRUA-Lean"
+      },
+      {
+        "label": "RPent, the tool-calling baseline",
+        "path": "https://github.com/RLinf/RPent"
+      }
+    ],
+    "home_title": "PyRUA-Lean",
+    "results_label": "PyRUA-Lean on GitHub"
   }
 ]

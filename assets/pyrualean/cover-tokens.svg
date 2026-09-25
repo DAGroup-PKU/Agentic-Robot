@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="cover-title cover-desc" font-family="Arial, Helvetica, sans-serif">
+<title id="cover-title">Fewer LLM calls and fewer tokens with code actions</title>
+<desc id="cover-desc">LLM calls against token consumption of a solved episode on four benchmarks. On each, an arrow runs from tool calling to PyRUA-Lean: LIBERO-PRO 4.5× fewer tokens; RoboTwin 2.0 1.7× fewer tokens; RoboCasa365 atomic 1.5× fewer tokens; RoboCasa365 composite 2.0× fewer tokens.</desc>
+<rect width="1200" height="630" fill="#e7eae1"/>
+<line x1="138" x2="1144" y1="460.4" y2="460.4" stroke="#d3d8ca" stroke-width="2"/>
+<text x="122.0" y="467.4" font-size="20" font-weight="400" fill="#656a61" text-anchor="end" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">200k</text>
+<line x1="138" x2="1144" y1="312.0" y2="312.0" stroke="#d3d8ca" stroke-width="2"/>
+<text x="122.0" y="319.0" font-size="20" font-weight="400" fill="#656a61" text-anchor="end" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">500k</text>
+<line x1="138" x2="1144" y1="199.8" y2="199.8" stroke="#d3d8ca" stroke-width="2"/>
+<text x="122.0" y="206.8" font-size="20" font-weight="400" fill="#656a61" text-anchor="end" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">1M</text>
+<line x1="138" x2="1144" y1="546" y2="546" stroke="#a7ad9f" stroke-width="2"/>
+<text x="206.8" y="576.0" font-size="20" font-weight="400" fill="#656a61" text-anchor="middle" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">5</text>
+<text x="542.1" y="576.0" font-size="20" font-weight="400" fill="#656a61" text-anchor="middle" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">10</text>
+<text x="877.4" y="576.0" font-size="20" font-weight="400" fill="#656a61" text-anchor="middle" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">20</text>
+<text x="1073.6" y="576.0" font-size="20" font-weight="400" fill="#656a61" text-anchor="middle" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">30</text>
+<text x="1144.0" y="608.0" font-size="21" font-weight="400" fill="#656a61" text-anchor="end" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">LLM calls per solved episode (log scale) →</text>
+<text x="122.0" y="56.0" font-size="21" font-weight="400" fill="#656a61" text-anchor="start" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">↑ Token consumption per solved episode (log scale)</text>
+<circle cx="148.0" cy="603.0" r="10" fill="#4a68b5"/>
+<text x="168.0" y="610.0" font-size="22" font-weight="600" fill="#242923" text-anchor="start" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">RPent · tool calling</text>
+<circle cx="454.0" cy="603.0" r="10" fill="#c26a40"/>
+<text x="474.0" y="610.0" font-size="22" font-weight="600" fill="#242923" text-anchor="start" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">PyRUA-Lean · code</text>
+<line x1="892.7" y1="176.4" x2="489.3" y2="392.7" stroke="#4d5249" stroke-width="3" stroke-dasharray="10 8"/><path d="M475.2,400.3 L485.5,385.7 L493.1,399.8 Z" fill="#4d5249"/>
+<line x1="618.5" y1="352.3" x2="508.4" y2="412.9" stroke="#4d5249" stroke-width="3" stroke-dasharray="10 8"/><path d="M494.3,420.7 L504.5,405.9 L512.2,420.0 Z" fill="#4d5249"/>
+<line x1="539.9" y1="421.5" x2="300.0" y2="477.6" stroke="#4d5249" stroke-width="3" stroke-dasharray="10 8"/><path d="M284.4,481.3 L298.1,469.9 L301.8,485.4 Z" fill="#4d5249"/>
+<line x1="1029.0" y1="174.5" x2="770.3" y2="269.4" stroke="#4d5249" stroke-width="3" stroke-dasharray="10 8"/><path d="M755.3,274.9 L767.5,261.9 L773.0,276.9 Z" fill="#4d5249"/>
+<circle cx="910.4" cy="166.9" r="13.0" fill="#4a68b5" stroke="#e7eae1" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="457.6" cy="409.7" r="13.0" fill="#c26a40" stroke="#e7eae1" stroke-width="3" stroke-linejoin="round"/>
+<rect x="624.4" y="331.0" width="23.4" height="23.4" rx="2" fill="#4a68b5" stroke="#e7eae1" stroke-width="3" stroke-linejoin="round"/>
+<rect x="465.1" y="418.6" width="23.4" height="23.4" rx="2" fill="#c26a40" stroke="#e7eae1" stroke-width="3" stroke-linejoin="round"/>
+<path d="M559.4,402.0 L574.3,428.9 L544.4,428.9 Z" fill="#4a68b5" stroke="#e7eae1" stroke-width="3" stroke-linejoin="round"/>
+<path d="M264.9,470.9 L279.9,497.8 L250.0,497.8 Z" fill="#c26a40" stroke="#e7eae1" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1047.8,151.3 L1064.1,167.6 L1047.8,183.8 L1031.6,167.6 Z" fill="#4a68b5" stroke="#e7eae1" stroke-width="3" stroke-linejoin="round"/>
+<path d="M736.5,265.5 L752.7,281.8 L736.5,298.0 L720.2,281.8 Z" fill="#c26a40" stroke="#e7eae1" stroke-width="3" stroke-linejoin="round"/>
+<text x="928.4" y="86.9" font-size="26" font-weight="700" fill="#242923" text-anchor="end" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">LIBERO-PRO</text>
+<text x="928.4" y="122.9" font-size="30" font-weight="700" fill="#9a4b24" text-anchor="end" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">4.5× fewer tokens</text>
+<text x="662.1" y="382.7" font-size="26" font-weight="700" fill="#242923" text-anchor="start" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">RoboTwin 2.0</text>
+<text x="662.1" y="418.7" font-size="30" font-weight="700" fill="#9a4b24" text-anchor="start" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">1.7× fewer tokens</text>
+<text x="585.4" y="457.0" font-size="26" font-weight="700" fill="#242923" text-anchor="start" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">RoboCasa365 atomic</text>
+<text x="585.4" y="493.0" font-size="30" font-weight="700" fill="#9a4b24" text-anchor="start" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">1.5× fewer tokens</text>
+<text x="1144.0" y="233.6" font-size="26" font-weight="700" fill="#242923" text-anchor="end" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">RoboCasa365</text>
+<text x="1144.0" y="265.6" font-size="26" font-weight="700" fill="#242923" text-anchor="end" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">composite</text>
+<text x="1144.0" y="301.6" font-size="30" font-weight="700" fill="#9a4b24" text-anchor="end" stroke="#e7eae1" stroke-width="7" stroke-linejoin="round" paint-order="stroke">2.0× fewer tokens</text>
+</svg>
