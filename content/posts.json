@@ -1,42 +1,5 @@
 [
   {
-    "slug": "fewer-tokens-better-action",
-    "title": "Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 12% Higher Success but 65% Fewer Tokens",
-    "subtitle": "Same model, same robot primitives, same budget. Acting in Python with PyRUA-Lean instead of through tool calls, GPT-6 Astra solves 10–15% more tasks on every benchmark and uses 35–78% fewer tokens.",
-    "excerpt": "Tool calls re-send the whole history at every step. PyRUA-Lean lets a robot agent write the step as code instead. We hold everything else fixed and measure what that is worth on LIBERO-PRO, RoboTwin 2.0 and RoboCasa365.",
-    "date": "2026-09-25",
-    "category": "Agent design",
-    "projects": [
-      "pyrualean"
-    ],
-    "image": "pyrualean/cover-tokens.svg",
-    "image_alt": "Chart: LLM calls against token consumption of a solved episode on four benchmarks, each with an arrow from tool calling (blue) to PyRUA-Lean (orange).",
-    "image_caption": "What a solved episode takes on each benchmark: LLM calls and token consumption, from tool calling (blue) to PyRUA-Lean (orange).",
-    "body": "fewer-tokens-better-action.html",
-    "results_path": "https://github.com/DAGroup-PKU/PyRUA-Lean",
-    "image_style": "diagram",
-    "authors": [
-      "Ruiyang Si",
-      "Jianxin Bi",
-      "Wenbo Huang",
-      "Rui Ni",
-      "Shunyu Yang",
-      "Qiang Wang",
-      "Shulong Jiang",
-      "Daquan Zhou"
-    ],
-    "citation_key": "si2026fewertokensbetteraction",
-    "results_label": "PyRUA-Lean on GitHub",
-    "aside_label": "Code",
-    "article_media": false,
-    "cta": {
-      "eyebrow": "Use the library",
-      "title": "PyRUA-Lean is open source.",
-      "text": "Install it, reproduce the comparison, and add your own robot. Contributions are welcome.",
-      "button": "PyRUA-Lean on GitHub"
-    }
-  },
-  {
     "slug": "robodojo-offline-policy-zero-shot",
     "title": "Code-as-Policies with Astra/Fable in RoboDojo",
     "subtitle": "Agent-written robot policies in RoboDojo: develop with feedback, freeze the code, then execute without the agent during evaluation.",
